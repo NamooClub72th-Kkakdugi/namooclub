@@ -17,9 +17,9 @@
 
 		<!-- form -->
 		<form class="form-signin" action="./community/index.html" method="post">
-			<input type="text" class="form-control" id="inputEmail"
-				placeholder="아이디"> <input type="password"
-				class="form-control" id="inputPassword" placeholder="비밀번호">
+			<input type="text" name="loginId" class="form-control" id="inputEmail" placeholder="아이디">
+			<input type="password" name="password" class="form-control" id="inputPassword"
+				placeholder="비밀번호">
 			<div class="row form-btn">
 				<button class="btn btn-large btn-warning" type="submit">로그인</button>
 				<button onclick="location.href='${ctx}/user/joinInput.xhtml'; return false;">회원가입</button>
