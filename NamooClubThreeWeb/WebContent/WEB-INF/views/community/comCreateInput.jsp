@@ -1,17 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>나무커뮤니티</title>
 <link href="../resources/common/css/bootstrap.css" rel="stylesheet">
 <link href="../resources/common/css/bootswatch.min.css" rel="stylesheet">
-
 </head>
 <body>
 
@@ -23,9 +19,6 @@
 					<div class="jumbotron">
 						<h1>나무 커뮤니티와 함께!</h1>
 						<p>나무 커뮤니티와 함께 특정 취미와 관심사, 특정 그룹 또는 조직에 관한 대화를 시작하세요.</p>
-						<p>
-							<a href="${ctx}/community/comCreateInput.xhtml" class="btn btn-warning btn-lg">커뮤니티 개설하기</a>
-						</p>
 					</div>
 				</div>
 			</div>
@@ -36,32 +29,42 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
-				<!-- ★★★ Tab Menu -->
-				<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-					<li class="active"><a href="#joined" data-toggle="tab">가입 커뮤니티</a></li>
-					<li class=""><a href="#unjoinded" data-toggle="tab">미가입 커뮤니티</a></li>
-				</ul>
 
-				<!-- ★★★ Tab Panel -->
-				<div id="communityList" class="tab-content">
-					<!-- ★★★ 가입 커뮤니티 -->
-					<div class="tab-pane fade active in" id="joined">
-						<div class="page-header">
-							<h2 id="container">가입 커뮤니티</h2>
-						</div>
+				<div class="page-header">
+					<h2 id="container">커뮤니티 개설하기</h2>
+				</div>
 
-						<ul class="list-group">
-							<c:forEach var="community" items="${communities}">
-							<li class="list-group-item"><span class="badge"></span>
-								<h4>${community.name}</h4><button>이동하기</button>
-								<p>${community.description}</p>
-								<button type="button" class="btn btn-default btn-sm">멤버탈퇴 신청하기</button>
-							</li>
-							</c:forEach>
-						</ul>
-					</div>
+				<div class="well">
+					<p>나와 같은 관심사를 가진 멤버를 모집하고 열심히 운영하여 커뮤니티를 성장시켜 보세요.</p>
+					<form class="form-horizontal" action="./comCreateCheck.do" method="post">
+						<fieldset>
+							<div class="form-group">
+								<label class="col-lg-2 control-label">커뮤니티명</label>
+
+								<div class="col-lg-10">
+									<input type="text" name="communityName" class="form-control" placeholder="커뮤니티명">
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="textArea"class="col-lg-2 control-label">커뮤니티 대표문구</label>
+
+								<div class="col-lg-10">
+									<textarea name="description" class="form-control" rows="3" id="textArea"></textarea>
+									<span class="help-block">커뮤니티를 소개하는 대표문구를 입력해 주세요. 커뮤니티 홈화면에
+										입력하신 문구가 출력됩니다.</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="col-lg-10 col-lg-offset-2">
+									<button class="btn btn-primary" type="submit">확인</button>
+									<button class="btn btn-default" onclick="location.href='${ctx}/community/comList.do'">취소</button>
+								</div>
+							</div>
+						</fieldset>
+					</form>
 				</div>
 			</div>
+
 		</div>
 
 		<!-- Footer ========================================================================================== -->

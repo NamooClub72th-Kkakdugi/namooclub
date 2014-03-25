@@ -1,9 +1,7 @@
 package com.namoo.ns1.web.controller.community;
 
 import java.io.IOException;
-import java.util.List;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,12 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
-import dom.entity.Community;
+@WebServlet("/community/comCreate.do")
+public class ComCreateController extends HttpServlet{
 
-@WebServlet("/community/comList.do")
-public class ComListController extends HttpServlet{
-
-	private static final long serialVersionUID = 2015998138536728657L;
+	private static final long serialVersionUID = -769132475582817366L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -29,13 +25,14 @@ public class ComListController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
-		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
-		String email = (String) req.getSession().getAttribute("loginId");
-		List<Community> communities = service.findBelongCommunities(email);
-		req.setAttribute("communities", communities);
+		String email = req.getSession().getId();
+		String communityName = req.getParameter("communityName");
+		String description = req.getParameter("description");
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comList.jsp");
-		dispatcher.forward(req, resp);
+		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
+		service.registCommunity(communityName, description, email);
+		
+		resp.sendRedirect("./comList.do");
 	}
 	
 	
