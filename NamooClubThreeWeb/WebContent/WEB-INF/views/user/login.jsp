@@ -16,16 +16,13 @@
 		</div>
 
 		<!-- form -->
-		<form class="form-signin" action="./community/index.html">
+		<form class="form-signin" action="./community/index.html" method="post">
 			<input type="text" class="form-control" id="inputEmail"
 				placeholder="아이디"> <input type="password"
 				class="form-control" id="inputPassword" placeholder="비밀번호">
 			<div class="row form-btn">
 				<button class="btn btn-large btn-warning" type="submit">로그인</button>
-				<button onclick="">회원가입</button>
-<%--
-				<button class="btn btn-large btn-default">회원가입</button>
-				 --%>
+				<button onclick="location.href='${ctx}/user/joinInput.xhtml'; return false;">회원가입</button>
 			</div>
 		</form>
 
@@ -35,8 +32,8 @@
 		</div>
 	</div>
 
-	<script src="js/jquery-2.1.0.js"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootswatch.js"></script>
+	<script src="../resources/js/jquery-2.1.0.js"></script>
+	<script src="../resources/js/bootstrap.min.js"></script>
+	<script src="../resources/js/bootswatch.js"></script>
 </body>
 </html>
