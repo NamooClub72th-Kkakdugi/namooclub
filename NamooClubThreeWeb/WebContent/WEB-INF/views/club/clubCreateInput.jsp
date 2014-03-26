@@ -134,7 +134,7 @@
 							<div class="form-group">
 								<div class="col-lg-10 col-lg-offset-2">
 									<button type="submit" class="btn btn-primary">확인</button>
-									<button class="btn btn-default">취소</button>
+									<button class="btn btn-default" onclick="location.href='${ctx}/club/clubList.do'; return false;">취소</button>
 								</div>
 							</div>
 						</fieldset>
