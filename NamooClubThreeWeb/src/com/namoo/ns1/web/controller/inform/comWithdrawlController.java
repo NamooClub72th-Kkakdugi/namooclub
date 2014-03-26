@@ -1,7 +1,6 @@
-package com.namoo.ns1.web.controller.community;
+package com.namoo.ns1.web.controller.inform;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -13,13 +12,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
-import dom.entity.Community;
 import dom.entity.SocialPerson;
 
-@WebServlet("/community/comJoinList.do")
-public class ComJoinListController extends HttpServlet{
+@WebServlet("/inform/comWithdrawl.do")
+public class comWithdrawlController extends HttpServlet {
 
-	private static final long serialVersionUID = 2015998138536728657L;
+	private static final long serialVersionUID = -2515907141006105519L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -30,14 +28,18 @@ public class ComJoinListController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
-		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String email = person.getEmail();
+		String communityName = req.getParameter("communityName");
 		
-		List<Community> communities = service.findBelongCommunities(email);
-		req.setAttribute("communities", communities);
+		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
+		service.withdrawalCommunity(communityName, email);
 		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comList.jsp");
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/comWithdrawl.jsp");
 		dispatcher.forward(req, resp);
 	}
+	
+	
+	
+
 }

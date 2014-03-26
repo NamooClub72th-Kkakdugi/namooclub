@@ -33,14 +33,14 @@ public class LoginController extends ForwardCommonController {
 		TownerService service = NamooClubServiceFactory.getInstance().getTownerService();
 		boolean login = service.loginAsTowner(loginId, password);
 		
+		
 		if (login) {
-			redirect(req, resp, "/community/comJoinList.do");
+			redirect(req, resp, "/community/comList.do");
 			req.getSession().setAttribute("loginUser", service.findTowner(loginId));
+			
 		} else {
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/loginError.jsp");
 			dispatcher.forward(req, resp);
 		}
-
 	}
-	
 }

@@ -46,7 +46,6 @@
 
             <div class="well">
                 <p>아래 질문 내용들을 정성껏 작성해 주세요.</p>
-                <form class="form-horizontal" action="./index.html">
                     <fieldset>
                         <div class="form-group">
                             <label class="col-lg-2 control-label">커뮤니티 가입 목적은 무엇입니까?</label>
@@ -64,12 +63,11 @@
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
-                                <button type="submit" class="btn btn-primary">확인</button>
+                                <button onclick="location.href='${ctx}/community/comList.do?communityName=${communityName}'"class="btn btn-primary">확인</button>
                                 <button class="btn btn-default">취소</button>
                             </div>
                         </div>
                     </fieldset>
-                </form>
             </div>
         </div>
     </div>
