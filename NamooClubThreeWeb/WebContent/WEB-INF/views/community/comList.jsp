@@ -71,7 +71,7 @@
 											<h4>${community.name}</h4>
 											<button>이동하기</button>
 											<p>${community.description}</p> 
-											<button onclick="location.href='${ctx}/community/comJoinInput.xhtml?cmId=${community.id}'">멤버가입</button></li>
+											<button onclick="location.href='${ctx}/community/comJoinInput.xhtml?id=${community.id}'">멤버가입</button></li>
 									</c:forEach>
 							</ul>
 					</div>
