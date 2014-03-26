@@ -45,7 +45,7 @@
 								</div>
 							</div>
 							<div class="form-group">
-								<label for="textArea"class="col-lg-2 control-label">커뮤니티 대표문구</label>
+								<label for="textArea" class="col-lg-2 control-label">커뮤니티 대표문구</label>
 
 								<div class="col-lg-10">
 									<textarea name="description" class="form-control" readonly="readonly" rows="3" id="textArea">${description}</textarea>
@@ -65,23 +65,7 @@
 			</div>
 
 		</div>
-
-		<!-- Footer ========================================================================================== -->
-		<footer>
-			<div class="row">
-				<div class="col-lg-12">
-					<ul class="list-unstyled">
-						<li class="pull-right"><a href="#top">위로 이동</a></li>
-						<li><a href="#">커뮤니티 홈</a></li>
-					</ul>
-					<p>© NamooSori 2014.</p>
-				</div>
-			</div>
-		</footer>
+<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 	</div>
-
-	<script src="${ctx}/resources/js/jquery-2.1.0.js"></script>
-	<script src="${ctx}/resources/js/bootstrap.min.js"></script>
-	<script src="${ctx}/resources/js/bootswatch.js"></script>
 </body>
 </html>

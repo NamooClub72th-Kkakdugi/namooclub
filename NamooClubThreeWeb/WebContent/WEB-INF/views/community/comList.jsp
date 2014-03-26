@@ -34,10 +34,8 @@
 			<div class="col-lg-12">
 				<!-- ★★★ Tab Menu -->
 				<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-					<li class="active"><a href="#joined" data-toggle="tab">가입
-							커뮤니티</a></li>
-					<li class=""><a href="#unjoinded" data-toggle="tab">미가입
-							커뮤니티</a></li>
+					<li class="active"><a href="#joined" data-toggle="tab">가입 커뮤니티</a></li>
+					<li class=""><a href="#unjoinded" data-toggle="tab">미가입 커뮤니티</a></li>
 				</ul>
 
 				<!-- ★★★ Tab Panel -->
@@ -48,35 +46,39 @@
 							<h2 id="container">가입 커뮤니티</h2>
 						</div>
 
-						<form class="form-signin" action="${ctx}/inform/comWithdrawCheck.do" method="post">
+						<form action="${ctx}/inform/comWithdrawlCheck.do" method="post">
 							<ul class="list-group">
 								<c:forEach var="community" items="${communities}">
 									<li class="list-group-item"><span class="badge"></span>
 										<h4>${community.name}</h4>
 										<button>이동하기</button>
-										<p>${community.description}</p>
-										<input type="submit" class="form-control" value="멤버탈퇴 신청하기" />
-									</li>
+										<p>${community.description}</p> 
+										<input type="submit" value="멤버탈퇴" class="btn btn-default btn-sm" /></li>
 								</c:forEach>
 							</ul>
 						</form>
 					</div>
+					<!-- ★★★ 미가입 커뮤니티 -->
+					<div class="tab-pane fade" id="unjoinded">
+						<div class="page-header">
+							<h2 id="container">미가입 커뮤니티</h2>
+						</div>
+						<ul class="list-group">
+							<li class="list-group-item"><c:forEach var="unjoinCommunity"
+									items="${unjoinCommunities}">
+									<li class="list-group-item"><span class="badge"></span>
+										<h4>${community.name}</h4>
+										<button>이동하기</button>
+										<p>${community.description}</p>
+										<button type="button" class="btn btn-default btn-sm"
+											onclick="location.href='join.html'">멤버 가입하기</button></li>
+								</c:forEach>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
-
-		<!-- Footer ========================================================================================== -->
-		<footer>
-			<div class="row">
-				<div class="col-lg-12">
-					<ul class="list-unstyled">
-						<li class="pull-right"><a href="#top">위로 이동</a></li>
-						<li><a href="#">커뮤니티 홈</a></li>
-					</ul>
-					<p>© NamooSori 2014.</p>
-				</div>
-			</div>
-		</footer>
+		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
 	</div>
 </body>
 </html>
