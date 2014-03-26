@@ -3,10 +3,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>Insert title here</title>
-<link href="${ctx}/resources/common/css/bootstrap.css" rel="stylesheet">
-<link href="${ctx}/resources/common/css/bootswatch.min.css" rel="stylesheet">
+<title>회원가입 확인하기</title>
+<%@ include file="/WEB-INF/views/common/common.jsp"%>
 </head>
 <body>
 	<!-- Main Navigation ========================================================================================== -->
@@ -92,19 +90,11 @@
 				<ul class="list-unstyled">
 					<li class="pull-right"><a href="#top">위로 이동</a></li>
 					<li><a href="#">커뮤니티 홈</a></li>
-					<li><a href="#">RSS</a></li>
-					<li><a href="#">이용약관</a></li>
-					<li><a href="#">도움말</a></li>
-					<li><a href="#">회원탈퇴</a></li>
 				</ul>
 				<p>© NamooSori 2014.</p>
 			</div>
 		</div>
 		</footer>
 	</div>
-
-	<script src="${ctx}/resources/js/jquery-2.1.0.js"></script>
-	<script src="${ctx}/resources/js/bootstrap.min.js"></script>
-	<script src="${ctx}/resources/js/bootswatch.js"></script>
 </body>
 </html>
