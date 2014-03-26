@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 
+
 @WebServlet("/inform/comWithdrawlCheck.do")
 public class ComWithdrawlCheckController extends HttpServlet {
 
@@ -24,8 +25,8 @@ public class ComWithdrawlCheckController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
-		String communityName = req.getParameter("communityName");
-		req.setAttribute("communityName", communityName);
+		String id = req.getParameter("id");
+		req.setAttribute("id", id);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/comWithdrawlCheck.jsp");
 		dispatcher.forward(req, resp);

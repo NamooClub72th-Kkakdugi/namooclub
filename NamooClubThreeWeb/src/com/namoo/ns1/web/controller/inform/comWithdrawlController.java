@@ -29,17 +29,14 @@ public class comWithdrawlController extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String id = req.getParameter("id");
 		String email = person.getEmail();
-		String communityName = req.getParameter("communityName");
-		
+
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
-		service.withdrawalCommunity(communityName, email);
-		
+		service.withdrawalCommunity(id, email);
+
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/comWithdrawl.jsp");
 		dispatcher.forward(req, resp);
 	}
-	
-	
-	
 
 }
