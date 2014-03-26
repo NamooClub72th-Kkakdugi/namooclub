@@ -6,8 +6,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>나무커뮤니티</title>
-<link href="../resources/common/css/bootstrap.css" rel="stylesheet">
-<link href="../resources/common/css/bootswatch.min.css" rel="stylesheet">
+<link href="${ctx}/resources/common/css/bootstrap.css" rel="stylesheet">
+<link href="${ctx}/resources/common/css/bootswatch.min.css" rel="stylesheet">
 </head>
 <body>
 
@@ -57,7 +57,7 @@
 							<div class="form-group">
 								<div class="col-lg-10 col-lg-offset-2">
 									<button class="btn btn-primary" type="submit">확인</button>
-									<button class="btn btn-default" onclick="location.href='${ctx}/community/comList.do'">취소</button>
+									<button class="btn btn-default" onclick="location.href='${ctx}/community/comList.do'; return false;">취소</button>
 								</div>
 							</div>
 						</fieldset>
@@ -81,8 +81,8 @@
 		</footer>
 	</div>
 
-	<script src="../js/jquery-2.1.0.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/bootswatch.js"></script>
+	<script src="${ctx}/resources/js/jquery-2.1.0.js"></script>
+	<script src="${ctx}/resources/js/bootstrap.min.js"></script>
+	<script src="${ctx}/resources/js/bootswatch.js"></script>
 </body>
 </html>

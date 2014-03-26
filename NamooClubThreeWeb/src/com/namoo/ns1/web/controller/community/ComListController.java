@@ -14,6 +14,7 @@ import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
 import dom.entity.Community;
+import dom.entity.SocialPerson;
 
 @WebServlet("/community/comList.do")
 public class ComListController extends HttpServlet{
@@ -30,14 +31,13 @@ public class ComListController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
-		String email = (String) req.getSession().getAttribute("loginId");
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String email = person.getEmail();
+		
 		List<Community> communities = service.findBelongCommunities(email);
 		req.setAttribute("communities", communities);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comList.jsp");
 		dispatcher.forward(req, resp);
 	}
-	
-	
-
 }

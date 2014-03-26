@@ -5,16 +5,16 @@ import java.io.IOException;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
+import com.namoo.ns1.web.controller.shared.ForwardCommonController;
 
 
 @WebServlet("/user/login.do")
-public class LoginController extends HttpServlet {
+public class LoginController extends ForwardCommonController {
 
 	private static final long serialVersionUID = -2532126402871325323L;
 
@@ -34,7 +34,7 @@ public class LoginController extends HttpServlet {
 		boolean login = service.loginAsTowner(loginId, password);
 		
 		if (login) {
-			resp.sendRedirect("/community/comList.do");
+			redirect(req, resp, "/community/comList.do");
 			req.getSession().setAttribute("loginUser", service.findTowner(loginId));
 		} else {
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/loginError.jsp");
@@ -42,6 +42,5 @@ public class LoginController extends HttpServlet {
 		}
 
 	}
-
 	
 }

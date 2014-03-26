@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
+import dom.entity.SocialPerson;
+
 @WebServlet("/community/comCreate.do")
 public class ComCreateController extends HttpServlet{
 
@@ -25,13 +27,14 @@ public class ComCreateController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
-		String email = req.getSession().getId();
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String email = person.getEmail();
 		String communityName = req.getParameter("communityName");
 		String description = req.getParameter("description");
 		
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		service.registCommunity(communityName, description, email);
-		
+			
 		resp.sendRedirect("./comList.do");
 	}
 	

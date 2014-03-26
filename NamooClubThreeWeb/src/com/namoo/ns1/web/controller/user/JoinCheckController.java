@@ -9,21 +9,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/user/joinInput.xhtml")
-public class joinInputController extends HttpServlet{
+@WebServlet("/user/joinCheck.do")
+public class JoinCheckController extends HttpServlet {
 
-	private static final long serialVersionUID = 1038847539954106291L;
+	private static final long serialVersionUID = -2546297256571102347L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 
+		//
 		doPost(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/joinInput.jsp");
+		String name = req.getParameter("name");
+		String email = req.getParameter("email");
+		String password = req.getParameter("password");
+		
+		req.setAttribute("name", name);
+		req.setAttribute("email", email);
+		req.setAttribute("password", password);
+		
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/joinCheck.jsp");
 		dispatcher.forward(req, resp);
 	}
 }

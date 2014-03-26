@@ -1,4 +1,4 @@
-package com.namoo.ns1.web.controller.community;
+package com.namoo.ns1.web.controller.user;
 
 import java.io.IOException;
 
@@ -9,24 +9,21 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet("/community/comCreateInput.xhtml")
-public class ComCreateInputController extends HttpServlet {
+@WebServlet("/user/joinInput.xhtml")
+public class JoinInputController extends HttpServlet{
 
-	private static final long serialVersionUID = -2467943640519332357L;
+	private static final long serialVersionUID = 1038847539954106291L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//
+		// 
 		doPost(req, resp);
 	}
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comCreateInput.jsp");
+		// 
+		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/joinInput.jsp");
 		dispatcher.forward(req, resp);
 	}
-	
-	
-
 }

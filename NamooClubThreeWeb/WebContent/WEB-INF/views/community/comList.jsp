@@ -9,8 +9,8 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>나무커뮤니티</title>
-<link href="../resources/common/css/bootstrap.css" rel="stylesheet">
-<link href="../resources/common/css/bootswatch.min.css" rel="stylesheet">
+<link href="${ctx}/resources/common/css/bootstrap.css" rel="stylesheet">
+<link href="${ctx}/resources/common/css/bootswatch.min.css" rel="stylesheet">
 
 </head>
 <body>
@@ -24,7 +24,7 @@
 						<h1>나무 커뮤니티와 함께!</h1>
 						<p>나무 커뮤니티와 함께 특정 취미와 관심사, 특정 그룹 또는 조직에 관한 대화를 시작하세요.</p>
 						<p>
-							<a href="${ctx}/community/comCreateInput.xhtml" class="btn btn-warning btn-lg">커뮤니티 개설하기</a>
+							<a href="${ctx}/view/community/comCreateInput.xhtml" class="btn btn-warning btn-lg">커뮤니티 개설하기</a>
 						</p>
 					</div>
 				</div>
@@ -78,8 +78,8 @@
 		</footer>
 	</div>
 
-	<script src="../js/jquery-2.1.0.js"></script>
-	<script src="../js/bootstrap.min.js"></script>
-	<script src="../js/bootswatch.js"></script>
+	<script src="${ctx}/resources/js/jquery-2.1.0.js"></script>
+	<script src="${ctx}/resources/js/bootstrap.min.js"></script>
+	<script src="${ctx}/resources/js/bootswatch.js"></script>
 </body>
 </html>

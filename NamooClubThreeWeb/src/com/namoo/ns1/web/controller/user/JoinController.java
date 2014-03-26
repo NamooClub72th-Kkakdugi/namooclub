@@ -1,9 +1,7 @@
 package com.namoo.ns1.web.controller.user;
 
 import java.io.IOException;
-import java.util.Set;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,10 +11,10 @@ import javax.servlet.http.HttpServletResponse;
 import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
-@WebServlet("/user/joinCheck.do")
-public class joinCheckController extends HttpServlet {
+@WebServlet("/user/join.do")
+public class JoinController extends HttpServlet {
 
-	private static final long serialVersionUID = -2546297256571102347L;
+	private static final long serialVersionUID = 351807380794036703L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -26,19 +24,16 @@ public class joinCheckController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 
+		//
 		String name = req.getParameter("name");
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
-//		
-//		TownerService service =  NamooClubServiceFactory.getInstance().getTownerService();
-//		service.registTowner(name, email, password);
-		
-		req.setAttribute("name", name);
-		req.setAttribute("email", email);
-		req.setAttribute("password", password);
-		
-		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/user/joinCheck.jsp");
-		dispatcher.forward(req, resp);
+
+		TownerService service = NamooClubServiceFactory.getInstance().getTownerService();
+		service.registTowner(name, email, password);
+
+		resp.sendRedirect("./main.xhtml");
+
 	}
+
 }

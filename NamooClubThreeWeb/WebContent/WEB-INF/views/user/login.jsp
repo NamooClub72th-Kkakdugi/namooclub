@@ -16,7 +16,7 @@
 		</div>
 
 		<!-- form -->
-		<form class="form-signin" action="./community/index.html" method="post">
+		<form class="form-signin" action="./login.do" method="post">
 			<input type="text" name="loginId" class="form-control" id="inputEmail" placeholder="아이디">
 			<input type="password" name="password" class="form-control" id="inputPassword"
 				placeholder="비밀번호">
