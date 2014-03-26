@@ -7,10 +7,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.namoo.ns1.data.EntityManager;
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.ForwardCommonController;
 
+import dom.entity.Community;
 import dom.entity.SocialPerson;
 
 @WebServlet("/community/comJoin.do")
@@ -29,7 +31,9 @@ public class ComJoinController extends ForwardCommonController{
 		//
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
-		String communityName = req.getParameter("communityName");
+		String id = req.getParameter("id");
+		Community community = EntityManager.getInstance().find(Community.class, id);
+		String communityName = community.getName(); 
 		String email = person.getEmail();
 		service.joinAsMember(communityName, email);
 		

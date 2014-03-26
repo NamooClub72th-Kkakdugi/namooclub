@@ -102,7 +102,7 @@ public class Community implements Identifiable {
 	@Override
 	public String getOId() {
 		// 
-		return name;
+		return id;
 	}
 
 	public void removeMember(String email) {

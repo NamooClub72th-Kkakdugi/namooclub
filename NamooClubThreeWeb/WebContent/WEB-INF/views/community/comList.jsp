@@ -50,7 +50,8 @@
 							<ul class="list-group">
 								<c:forEach var="community" items="${joinCommunities}">
 									<li class="list-group-item"><span class="badge"></span>
-										<h4><input type="hidden" name="communityName" value="${community.name}" />${community.name}</h4>
+										<h4>${community.name}</h4>
+										<input type="hidden" name="id" value="${community.id}" />
 										<button>이동하기</button>
 										<p>${community.description}</p> <input type="submit" value="멤버탈퇴"
 										class="btn btn-default btn-sm" /></li>
@@ -68,9 +69,10 @@
 								<c:forEach var="community" items="${allCommunities}">
 										<li class="list-group-item"><span class="badge"></span>
 											<h4>${community.name}</h4>
+											<input type="hidden" name="id" value="${community.id}" />
 											<button>이동하기</button>
 											<p>${community.description}</p> 
-											<button onclick="location.href='${ctx}/view/community/comJoinInput.xhtml?communityName=${community.name}'">멤버가입</button></li>
+											<button onclick="location.href='${ctx}/view/community/comJoinInput.xhtml'">멤버가입</button></li>
 									</c:forEach>
 							</ul>
 					</div>

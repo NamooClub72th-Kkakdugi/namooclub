@@ -50,7 +50,7 @@
                         <div class="form-group">
                             <label class="col-lg-2 control-label">커뮤니티 가입 목적은 무엇입니까?</label>
                             <div class="col-lg-10">
-                                <input type="text" class="form-control" placeholder="커뮤니티명">
+                                <input type="text" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
