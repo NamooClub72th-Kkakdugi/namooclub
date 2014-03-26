@@ -48,7 +48,7 @@
 
 				<div class="well">
 					<p>회원가입을 위해 아래 내용들을 작성해 주세요.</p>
-					<form class="form-horizontal" action="./joinCheck.do" method="post">
+					<form class="form-horizontal" action="${ctx}/user/joinCheck.do" method="post">
 						<fieldset>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">이름</label>
@@ -99,7 +99,7 @@
 				<ul class="list-unstyled">
 					<li class="pull-right"><a href="#top">위로 이동</a></li>
 					<li><a href="#">커뮤니티 홈</a></li>
-					<li><a href="#">RSS</a></li>
+					<li><a href="#">(RSS)</a></li>
 					<li><a href="#">이용약관</a></li>
 					<li><a href="#">도움말</a></li>
 					<li><a href="#">회원탈퇴</a></li>
