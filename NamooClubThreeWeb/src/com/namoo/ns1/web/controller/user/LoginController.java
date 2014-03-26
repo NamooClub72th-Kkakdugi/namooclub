@@ -34,7 +34,7 @@ public class LoginController extends ForwardCommonController {
 		boolean login = service.loginAsTowner(loginId, password);
 		
 		if (login) {
-			redirect(req, resp, "/community/comList.do");
+			redirect(req, resp, "/community/comJoinList.do");
 			req.getSession().setAttribute("loginUser", service.findTowner(loginId));
 		} else {
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/loginError.jsp");
