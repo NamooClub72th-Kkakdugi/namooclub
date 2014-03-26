@@ -9,6 +9,7 @@ public class Community implements Identifiable {
 
 	private static final long serialVersionUID = -1649818789572216203L;
 	
+	private String id;
 	private String name;
 	private String description;
 	
@@ -23,8 +24,9 @@ public class Community implements Identifiable {
 	 * @param communityName
 	 * @param admin
 	 */
-	public Community(String communityName, String description, SocialPerson admin){
+	public Community(String id, String communityName, String description, SocialPerson admin){
 		//
+		this.id = id;
 		this.name = communityName;
 		this.description = description;
 		this.members = new ArrayList<CommunityMember>();
@@ -38,6 +40,10 @@ public class Community implements Identifiable {
 	
 	public String getName() {
 		return name;
+	}
+
+	public String getId() {
+		return id;
 	}
 
 	public void setName(String name) {

@@ -5,6 +5,7 @@ import java.util.List;
 import com.namoo.ns1.data.EntityManager;
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.logic.exception.NamooExceptionFactory;
+import com.namoo.ns1.service.util.SequenceGenerator;
 
 import dom.entity.Community;
 import dom.entity.CommunityMember;
@@ -20,33 +21,6 @@ public class CommunityServiceLogic implements CommunityService {
 	}
 	
 	@Override
-	@Deprecated
-	public void registCommunity(String communityName, String adminName, String email, String password){
-		//
-		SocialPerson admin = createPerson(adminName, email, password);
-		Community community = new Community(communityName, "", admin);
-		
-		em.store(community);
-	}
-
-	@Override
-	public void registCommunity(String communityName, String description, String adminName, String email, String password) {
-		//
-		if (em.find(Community.class, communityName) != null) {
-			throw NamooExceptionFactory.createRuntime("이미 존재하는 커뮤니티입니다.");
-		}
-		
-		if (em.find(SocialPerson.class, email) != null) {
-			throw NamooExceptionFactory.createRuntime("해당 주민이 이미 존재합니다.");
-		}
-
-		SocialPerson admin = createPerson(adminName, email, password);
-		Community community = new Community(communityName, description, admin);
-		
-		em.store(community);
-	}
-
-	@Override
 	public void registCommunity(String communityName, String description, String email) {
 		//
 		if (em.find(Community.class, communityName) != null) {
@@ -58,9 +32,10 @@ public class CommunityServiceLogic implements CommunityService {
 			throw NamooExceptionFactory.createRuntime("존재하지 않는 주민입니다.");
 		}
 		
-		Community community = new Community(communityName, description, towner);
+		String id = SequenceGenerator.getNextId(Community.class);
+		Community community = new Community(id, communityName, description, towner);
 		em.store(community);
-	}
+		}
 
 	private SocialPerson createPerson(String name, String email, String password) {
 		// 
@@ -206,4 +181,5 @@ public class CommunityServiceLogic implements CommunityService {
 		community.removeMember(email);
 		em.store(community);
 	}
+
 }

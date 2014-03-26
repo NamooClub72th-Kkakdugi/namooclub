@@ -10,29 +10,6 @@ import dom.entity.CommunityMember;
 public interface CommunityService {
 
 	/**
-	 * 
-	 * @param communityName
-	 * @param adminName
-	 * @param email
-	 * @param password
-	 */
-	@Deprecated
-	public void registCommunity(String communityName, String adminName, String email, String password);
-	
-	/**
-	 * [주민으로 등록되지 않은 경우] 커뮤니티 개설
-	 * 
-	 * 주민 가입을 처리하고 나서 커뮤니티를 개설한다.
-	 * 이미 존재하는 주민인 경우 예외가 발생한다.
-	 * @param communityName
-	 * @param description
-	 * @param adminName
-	 * @param email
-	 * @param password
-	 */
-	public void registCommunity(String communityName, String description, String adminName, String email, String password);
-
-	/**
 	 * [주민으로 등록된 경우] 커뮤니티 개설
 	 * 
 	 * 이미 주민으로 가입되어 있는 경우 이메일만 필요하다.

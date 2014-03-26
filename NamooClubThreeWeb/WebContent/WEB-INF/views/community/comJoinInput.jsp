@@ -18,8 +18,8 @@
         <div class="row">
             <div class="col-lg-12">
                 <div class="jumbotron">
-                    <h1>건강 커뮤니티</h1>
-                    <p>전국민 건강 프로젝트를 진행 중인 커뮤니티입니다. 각종 구기종목 및 헬스 관련 클럽이 있습니다.전국민 건강 프로젝트를 진행 중인 커뮤니티입니다. 각종 구기종목 및 헬스 관련 클럽이 있습니다.</p>
+                    <h1>${communityName}</h1>
+                    <p>${comunityName}</p>
                 </div>
             </div>
         </div>
@@ -49,21 +49,19 @@
                     <fieldset>
                         <div class="form-group">
                             <label class="col-lg-2 control-label">커뮤니티 가입 목적은 무엇입니까?</label>
-
                             <div class="col-lg-10">
                                 <input type="text" class="form-control" placeholder="커뮤니티명">
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="textArea" class="col-lg-2 control-label">커뮤니티 운영자에게 하고 싶은 말씀은 무엇인가요?</label>
-
                             <div class="col-lg-10">
                                 <textarea class="form-control" rows="3" id="textArea"></textarea>
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-lg-10 col-lg-offset-2">
-                                <button onclick="location.href='${ctx}/community/comList.do?communityName=${communityName}'"class="btn btn-primary">확인</button>
+                                <button onclick="location.href='${ctx}/community/comJoin.do?communityName=${communityName}'"class="btn btn-primary">확인</button>
                                 <button class="btn btn-default">취소</button>
                             </div>
                         </div>
