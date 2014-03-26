@@ -5,7 +5,7 @@
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>나무커뮤니티aa</title>
+<title>나무커뮤니티</title>
 <link href="../resources/common/css/bootstrap.css" rel="stylesheet">
 <link href="../resources/common/css/bootswatch.min.css" rel="stylesheet">
 </head>
