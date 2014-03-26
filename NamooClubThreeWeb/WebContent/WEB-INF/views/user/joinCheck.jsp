@@ -5,8 +5,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Insert title here</title>
-<link href="../resources/common/css/bootstrap.css" rel="stylesheet">
-<link href="../resources/common/css/bootswatch.min.css" rel="stylesheet">
+<link href="${ctx}/resources/common/css/bootstrap.css" rel="stylesheet">
+<link href="${ctx}/resources/common/css/bootswatch.min.css" rel="stylesheet">
 </head>
 <body>
 	<!-- Main Navigation ========================================================================================== -->
@@ -103,8 +103,8 @@
 		</footer>
 	</div>
 
-	<script src="../resources/js/jquery-2.1.0.js"></script>
-	<script src="../resources/js/bootstrap.min.js"></script>
-	<script src="../resources/js/bootswatch.js"></script>
+	<script src="${ctx}/resources/js/jquery-2.1.0.js"></script>
+	<script src="${ctx}/resources/js/bootstrap.min.js"></script>
+	<script src="${ctx}/resources/js/bootswatch.js"></script>
 </body>
 </html>

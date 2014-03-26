@@ -4,7 +4,7 @@
 <html>
 <head>
 <title>Insert title here</title>
-<link href="../resources/css/login.css" rel="stylesheet">
+<link href="${ctx}/resources/css/login.css" rel="stylesheet">
 
 </head>
 <body>
@@ -22,7 +22,7 @@
 				placeholder="비밀번호">
 			<div class="row form-btn">
 				<button class="btn btn-large btn-warning" type="submit">로그인</button>
-				<button onclick="location.href='${ctx}/user/joinInput.xhtml'; return false;">회원가입</button>
+				<button onclick="location.href='${ctx}/view/user/joinInput.xhtml'; return false;">회원가입</button>
 			</div>
 		</form>
 
@@ -32,8 +32,8 @@
 		</div>
 	</div>
 
-	<script src="../resources/js/jquery-2.1.0.js"></script>
-	<script src="../resources/js/bootstrap.min.js"></script>
-	<script src="../resources/js/bootswatch.js"></script>
+	<script src="${ctx}/resources/js/jquery-2.1.0.js"></script>
+	<script src="${ctx}/resources/js/bootstrap.min.js"></script>
+	<script src="${ctx}/resources/js/bootswatch.js"></script>
 </body>
 </html>
