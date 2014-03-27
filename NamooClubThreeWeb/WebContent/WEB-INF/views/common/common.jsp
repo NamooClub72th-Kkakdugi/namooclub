@@ -6,4 +6,4 @@
 <link href="${ctx}/resources/common/css/bootswatch.min.css" rel="stylesheet">
 <script src="${ctx}/resources/js/jquery-2.1.0.js"></script>
 <script src="${ctx}/resources/js/bootstrap.min.js"></script>
-<script src="${ctx}/resources/js/bootswatch.js"></script>s
+<script src="${ctx}/resources/js/bootswatch.js"></script>

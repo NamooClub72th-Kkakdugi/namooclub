@@ -38,5 +38,4 @@ public class comWithdrawlController extends HttpServlet {
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/comWithdrawl.jsp");
 		dispatcher.forward(req, resp);
 	}
-
 }

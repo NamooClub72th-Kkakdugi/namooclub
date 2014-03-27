@@ -10,22 +10,16 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
-import com.namoo.ns1.web.controller.shared.ForwardCommonController;
+import com.namoo.ns1.web.controller.shared.DefaultController;
 
 
 @WebServlet("/user/login.do")
-public class LoginController extends ForwardCommonController {
+public class LoginController extends DefaultController {
 
 	private static final long serialVersionUID = -2532126402871325323L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		//
-		doPost(req, resp);
-	}
-
-	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
 		String loginId = req.getParameter("loginId");
 		String password = req.getParameter("password");
