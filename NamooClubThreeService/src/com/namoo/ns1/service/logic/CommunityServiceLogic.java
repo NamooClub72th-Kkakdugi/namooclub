@@ -23,7 +23,7 @@ public class CommunityServiceLogic implements CommunityService {
 	@Override
 	public void registCommunity(String communityName, String description, String email) {
 		//
-		if (em.find(Community.class, communityName) != null) {
+		if (isExistCommunityByName(communityName)) {
 			throw NamooExceptionFactory.createRuntime("이미 존재하는 커뮤니티입니다.");
 		}
 		
@@ -36,6 +36,20 @@ public class CommunityServiceLogic implements CommunityService {
 		Community community = new Community(id, communityName, description, towner);
 		em.store(community);
 		}
+
+	private boolean isExistCommunityByName(String communityName) {
+		// 
+		List<Community> communities = em.findAll(Community.class);
+		
+		if (communities != null && !communities.isEmpty()) {
+			for (Community community : communities) {
+				if (community.getName().equals(communityName)) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
 
 	private SocialPerson createPerson(String name, String email, String password) {
 		// 

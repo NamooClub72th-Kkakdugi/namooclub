@@ -53,7 +53,7 @@
 										<h4><a href="${ctx}/club/clubList.do">${community.name}</a></h4>
 										<input type="hidden" name="id" value="${community.id}" />
 										<p>${community.description}</p> 
-										<button class="btn btn-default btn-sm" onclick="location.href='${ctx}/community/comRemoveCheck.do?id=${id}'; return false;">삭제하기</button>
+										<button class="btn btn-default btn-sm" onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${id}'; return false;">삭제하기</button>
 										<input type="submit" value="멤버탈퇴" class="btn btn-default btn-sm" /></li>
 								</c:forEach>
 							</ul>
