@@ -10,10 +10,12 @@ import javax.servlet.http.HttpServletResponse;
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
+import com.namoo.ns1.web.controller.shared.LoginRequired;
 
 import dom.entity.SocialPerson;
 
 @WebServlet("/community/comJoin.do")
+@LoginRequired
 public class ComJoinController extends DefaultController {
 
 	private static final long serialVersionUID = -8664188246067720891L;

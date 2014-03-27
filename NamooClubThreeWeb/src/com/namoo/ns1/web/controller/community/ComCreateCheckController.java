@@ -9,7 +9,10 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.namoo.ns1.web.controller.shared.LoginRequired;
+
 @WebServlet("/community/comCreateCheck.do")
+@LoginRequired
 public class ComCreateCheckController extends HttpServlet{
 
 	private static final long serialVersionUID = 6748757820209095647L;

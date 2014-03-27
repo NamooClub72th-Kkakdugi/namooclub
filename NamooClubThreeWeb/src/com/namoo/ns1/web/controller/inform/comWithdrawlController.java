@@ -11,10 +11,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
+import com.namoo.ns1.web.controller.shared.LoginRequired;
 
 import dom.entity.SocialPerson;
 
 @WebServlet("/inform/comWithdrawl.do")
+@LoginRequired
 public class comWithdrawlController extends HttpServlet {
 
 	private static final long serialVersionUID = -2515907141006105519L;

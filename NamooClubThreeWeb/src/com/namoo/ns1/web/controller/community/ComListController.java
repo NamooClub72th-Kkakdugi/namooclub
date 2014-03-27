@@ -12,11 +12,13 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
+import com.namoo.ns1.web.controller.shared.LoginRequired;
 
 import dom.entity.Community;
 import dom.entity.SocialPerson;
 
 @WebServlet("/community/comList.do")
+@LoginRequired
 public class ComListController extends HttpServlet{
 
 	private static final long serialVersionUID = 2015998138536728657L;

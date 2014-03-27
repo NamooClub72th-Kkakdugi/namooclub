@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.namoo.ns1.web.controller.shared.LoginRequired;
+
 
 @WebServlet("/community/comJoinInput.xhtml")
+@LoginRequired
 public class ComJoinInputController extends HttpServlet{
 
 	private static final long serialVersionUID = 1089732649951719131L;
