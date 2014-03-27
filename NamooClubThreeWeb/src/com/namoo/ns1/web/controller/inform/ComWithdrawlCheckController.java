@@ -34,7 +34,6 @@ public class ComWithdrawlCheckController extends HttpServlet {
 		//
 		String id = req.getParameter("id");
 		req.setAttribute("id", id);
-		System.out.println(id);
 		req.setAttribute("name", req.getParameter("name"));
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		Community community = service.findCommunity(id);
