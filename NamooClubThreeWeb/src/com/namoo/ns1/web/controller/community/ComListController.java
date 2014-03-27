@@ -6,13 +6,11 @@ import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
-import com.namoo.ns1.service.logic.exception.NamooExceptionFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
 
@@ -34,15 +32,17 @@ public class ComListController extends DefaultController{
 		
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String email = person.getEmail();
+		String name = person.getName();
 		
 		List<Community> joinCommunities = service.findBelongCommunities(email);
 		List<Community> allCommunities = service.findAllCommunities();
-
+		
 		for (Community joinCommunity : joinCommunities) {
 			allCommunities.remove(joinCommunity);
 		}
 		req.setAttribute("allCommunities", allCommunities);
 		req.setAttribute("joinCommunities", joinCommunities);
+		req.setAttribute("name", name);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comList.jsp");
 		dispatcher.forward(req, resp);

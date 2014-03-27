@@ -13,6 +13,7 @@ import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 
 
+
 @WebServlet("/user/login.do")
 public class LoginController extends DefaultController {
 
@@ -31,7 +32,6 @@ public class LoginController extends DefaultController {
 		if (login) {
 			redirect(req, resp, "/community/comList.do");
 			req.getSession().setAttribute("loginUser", service.findTowner(loginId));
-			
 		} else {
 			RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/loginError.jsp");
 			dispatcher.forward(req, resp);
