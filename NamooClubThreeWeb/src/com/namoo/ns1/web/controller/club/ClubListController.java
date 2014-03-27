@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.namoo.ns1.service.facade.ClubService;
+import com.namoo.ns1.service.factory.NamooClubServiceFactory;
+
 @WebServlet("/club/clubList.do")
 public class ClubListController extends HttpServlet{
 
@@ -22,7 +25,8 @@ public class ClubListController extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// 
+		//
+		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/clubList.jsp");
 		dispatcher.forward(req, resp);
 	}
