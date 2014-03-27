@@ -32,6 +32,7 @@ public class ComRemoveCheckController extends DefaultController {
 		Community community = service.findCommunity(id);
 		String communityName = community.getName();
 		req.setAttribute("communityName", communityName);
+		req.setAttribute("name", req.getParameter("name"));
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/comRemoveCheck.jsp");
 		dispatcher.forward(req, resp);

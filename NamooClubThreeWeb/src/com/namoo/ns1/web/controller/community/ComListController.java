@@ -31,8 +31,8 @@ public class ComListController extends DefaultController{
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
-		String email = person.getEmail();
 		String name = person.getName();
+		String email = person.getEmail();
 		
 		List<Community> joinCommunities = service.findBelongCommunities(email);
 		List<Community> allCommunities = service.findAllCommunities();

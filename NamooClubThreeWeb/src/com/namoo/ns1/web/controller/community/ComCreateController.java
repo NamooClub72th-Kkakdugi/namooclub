@@ -12,7 +12,6 @@ import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
 
-import dom.entity.Community;
 import dom.entity.SocialPerson;
 
 @WebServlet("/community/comCreate.do")
@@ -27,10 +26,9 @@ public class ComCreateController extends DefaultController {
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String email = person.getEmail();
-		String id = req.getParameter("id");
-		Community community = service.findCommunity(id);
-		String communityName = community.getName();
+		String communityName = req.getParameter("communityName");
 		String description = req.getParameter("description");
+		req.setAttribute("name", req.getParameter("name"));
 
 		service.registCommunity(communityName, description, email);
 		redirect(req, resp, "/community/comList.do");

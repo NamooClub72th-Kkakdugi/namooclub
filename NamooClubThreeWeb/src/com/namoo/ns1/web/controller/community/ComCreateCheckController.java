@@ -28,7 +28,7 @@ public class ComCreateCheckController extends HttpServlet{
 		//
 		String communityName = req.getParameter("communityName");
 		String description = req.getParameter("description");
-		
+		req.setAttribute("name", req.getParameter("name"));
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("description", description);
 		

@@ -58,6 +58,7 @@ body {
 </style>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/common/mainNavigator.jsp"%>
 	<div class="container">
 
 		<!-- header -->
@@ -67,10 +68,9 @@ body {
 
 		<!-- body -->
 		<div class="info-body">
-			<form action="${ctx}/inform/comRemove.do" method="post">
+			<form action="${ctx}/inform/comRemove.do?name=${name}&id=${id}" method="post">
 				<h3>삭제 안내</h3>
 				<p>정말로 ${communityName}을 삭제 하시겠습니까??</p>
-				<input type="hidden" name="id" value="${id}" />
 				<input type="submit" value="확인" />
 				<button onclick="history.back(); return false;">취소</button>
 			</form>

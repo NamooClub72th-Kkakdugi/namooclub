@@ -9,7 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.namoo.ns1.service.facade.CommunityService;
+import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
+
+import dom.entity.Community;
 
 
 
@@ -30,6 +34,12 @@ public class ComWithdrawlCheckController extends HttpServlet {
 		//
 		String id = req.getParameter("id");
 		req.setAttribute("id", id);
+		System.out.println(id);
+		req.setAttribute("name", req.getParameter("name"));
+		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
+		Community community = service.findCommunity(id);
+		String communityName = community.getName();
+		req.setAttribute("communityName", communityName);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/comWithdrawlCheck.jsp");
 		dispatcher.forward(req, resp);

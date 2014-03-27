@@ -33,7 +33,8 @@ public class comWithdrawlController extends HttpServlet {
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String id = req.getParameter("id");
 		String email = person.getEmail();
-
+		req.setAttribute("name", req.getParameter("name"));
+		
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		service.withdrawalCommunity(id, email);
 

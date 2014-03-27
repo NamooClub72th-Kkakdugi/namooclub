@@ -7,7 +7,7 @@
 <%@ include file="/WEB-INF/views/common/common.jsp"%>
 </head>
 <body>
-
+<%@ include file="/WEB-INF/views/common/mainNavigator.jsp"%>
 	<!-- Header ========================================================================================== -->
 	<header>
 		<div class="container">
@@ -33,7 +33,7 @@
 
 				<div class="well">
 					<p>나와 같은 관심사를 가진 멤버를 모집하고 열심히 운영하여 커뮤니티를 성장시켜 보세요.</p>
-					<form class="form-horizontal" action="${ctx}/community/comCreateCheck.do" method="post">
+					<form class="form-horizontal" action="${ctx}/community/comCreateCheck.do?name=${name}" method="post">
 						<fieldset>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">커뮤니티명</label>
@@ -54,7 +54,7 @@
 							<div class="form-group">
 								<div class="col-lg-10 col-lg-offset-2">
 									<button class="btn btn-primary" type="submit">확인</button>
-									<button class="btn btn-default" onclick="location.href='${ctx}/community/comList.do'; return false;">취소</button>
+									<button class="btn btn-default" onclick="location.href='${ctx}/community/comList.do?name=${name}'; return false;">취소</button>
 								</div>
 							</div>
 						</fieldset>

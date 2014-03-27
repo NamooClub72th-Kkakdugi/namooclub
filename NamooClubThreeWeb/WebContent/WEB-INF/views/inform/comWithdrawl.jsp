@@ -57,6 +57,7 @@ body {
 </style>
 </head>
 <body>
+<%@ include file="/WEB-INF/views/common/mainNavigator.jsp"%>
 	<div class="container">
 
 		<!-- header -->

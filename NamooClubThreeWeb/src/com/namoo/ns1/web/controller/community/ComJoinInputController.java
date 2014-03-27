@@ -29,6 +29,8 @@ public class ComJoinInputController extends HttpServlet{
 		//
 		String id = req.getParameter("id");
 		req.setAttribute("id", id);
+		String name = req.getParameter("name");
+		req.setAttribute("name", name);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comJoinInput.jsp");
 		dispatcher.forward(req, resp);
