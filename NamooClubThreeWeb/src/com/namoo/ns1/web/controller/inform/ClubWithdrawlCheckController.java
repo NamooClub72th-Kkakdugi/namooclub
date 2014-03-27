@@ -17,7 +17,7 @@ import dom.entity.Community;
 
 
 
-@WebServlet("/inform/comWithdrawlCheck.do")
+@WebServlet("/inform/clubWithdrawlCheck.do")
 @LoginRequired
 public class ClubWithdrawlCheckController extends HttpServlet {
 

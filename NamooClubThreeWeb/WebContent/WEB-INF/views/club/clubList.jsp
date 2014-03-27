@@ -57,7 +57,7 @@
 								<a href="../team/index.html">${club.name}</a>
 							</h4>
 							<p>${club.description}</p>
-							<button type="button" class="btn btn-default btn-sm" onclick="location.href='${ctx}/club/removeCheck.do?clId=${club.id}'">클럽삭제하기</button>
+							<button type="button" class="btn btn-default btn-sm" onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}'">클럽삭제하기</button>
 							<button type="button" class="btn btn-default btn-sm" onclick="location.href='${ctx}/inform/clubWithdrawlCheck.do'">멤버탈퇴 신청하기</button></li>
 							
 					</ul>
