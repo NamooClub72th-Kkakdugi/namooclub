@@ -17,10 +17,11 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="jumbotron">
-					<form action="${ctx}/club/clubCreateInput.do" method="get">
+					<form action="${ctx}/club/clubCreateInput.do?id=${id}" method="get">
 						<h1>${communityName}</h1>
 						<p>${description}</p>
 						<p>
+						
 							<input type="submit" class="btn btn-warning btn-lg" value="클럽 개설하기">
 						</p>
 					</form>

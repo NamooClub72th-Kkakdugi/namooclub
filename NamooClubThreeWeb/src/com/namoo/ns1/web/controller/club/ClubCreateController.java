@@ -25,7 +25,6 @@ public class ClubCreateController extends DefaultController{
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String email = person.getEmail();
 		
-		
 		String clubCategory = req.getParameter("clubCategory");
 		String clubName = req.getParameter("clubName");
 		String clubDescription = req.getParameter("clubDescription");

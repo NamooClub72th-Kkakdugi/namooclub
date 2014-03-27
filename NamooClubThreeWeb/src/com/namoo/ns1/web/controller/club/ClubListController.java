@@ -42,6 +42,7 @@ public class ClubListController extends HttpServlet{
 		req.setAttribute("clubs", clubs);
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("description", description);
+		req.setAttribute("id", id);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/clubList.jsp");
 		dispatcher.forward(req, resp);
