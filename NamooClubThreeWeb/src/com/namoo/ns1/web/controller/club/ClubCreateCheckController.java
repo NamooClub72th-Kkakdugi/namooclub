@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.namoo.ns1.service.facade.CommunityService;
+import com.namoo.ns1.service.factory.NamooClubServiceFactory;
+
 @WebServlet("/club/clubCreateCheck.do")
 public class ClubCreateCheckController extends HttpServlet{
 
@@ -23,20 +26,21 @@ public class ClubCreateCheckController extends HttpServlet{
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
-
+		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
+		String id = req.getParameter("id");
+		String communityName = service.findCommunity(id).getName();
+		String description = service.findCommunity(id).getDescription();
+		
 		String clubCategory = req.getParameter("clubCategory");
 		String clubName = req.getParameter("clubName");
 		String clubDescription = req.getParameter("clubDescription");
-		String clubQuOne =  req.getParameter("clubQuOne");
-		String clubQuTwo =  req.getParameter("clubQuTwo");
-		String clubQuThree =  req.getParameter("clubQuThree");
 		
+		req.setAttribute("id", id);
 		req.setAttribute("clubCategory", clubCategory);
 		req.setAttribute("clubName", clubName);
 		req.setAttribute("clubDescription", clubDescription);
-		req.setAttribute("clubQuOne", clubQuOne);
-		req.setAttribute("clubQuTwo", clubQuTwo);
-		req.setAttribute("clubQuThree", clubQuThree);
+		req.setAttribute("communityName", communityName);
+		req.setAttribute("description", description);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/clubCreateCheck.jsp");
 		dispatcher.forward(req, resp);

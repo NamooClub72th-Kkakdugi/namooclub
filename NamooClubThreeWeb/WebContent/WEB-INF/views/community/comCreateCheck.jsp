@@ -16,8 +16,8 @@
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="jumbotron">
-						<h1>나무 커뮤니티와 함께!</h1>
-						<p>나무 커뮤니티와 함께 특정 취미와 관심사, 특정 그룹 또는 조직에 관한 대화를 시작하세요.</p>
+						<h1>${communityName}</h1>
+						<p>${description}</p>
 					</div>
 				</div>
 			</div>
@@ -56,6 +56,7 @@
 							</div>
 							<div class="form-group">
 								<div class="col-lg-10 col-lg-offset-2">
+								<input type="hidden" name="id" value="${id}" />
 									<button class="btn btn-primary" type="submit">확인</button>
 									<button class="btn btn-default" onclick="history.back(); return false;">취소</button>
 								</div>
