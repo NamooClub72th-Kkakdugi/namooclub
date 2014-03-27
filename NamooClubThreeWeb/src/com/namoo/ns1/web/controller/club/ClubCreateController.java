@@ -24,10 +24,13 @@ public class ClubCreateController extends DefaultController{
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String email = person.getEmail();
+		String id = req.getParameter("id");
 		
 		String clubCategory = req.getParameter("clubCategory");
 		String clubName = req.getParameter("clubName");
 		String clubDescription = req.getParameter("clubDescription");
+		
+		req.setAttribute("id", id);
 		
 		service.registClub(clubCategory, clubName, clubDescription, email);
 		redirect(req, resp, "/club/clubList.do");
