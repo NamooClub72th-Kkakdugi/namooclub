@@ -34,8 +34,8 @@ public class ClubListController extends HttpServlet{
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
 		CommunityService comService = NamooClubServiceFactory.getInstance().getCommunityService();
 		
-		String id = req.getParameter("id");
-		Community community = comService.findCommunity(id);
+		String cmId = req.getParameter("cmId");
+		Community community = comService.findCommunity(cmId);
 		String communityName = community.getName();
 		String description = community.getDescription();
 		
@@ -43,7 +43,7 @@ public class ClubListController extends HttpServlet{
 		req.setAttribute("clubs", clubs);
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("description", description);
-		req.setAttribute("id", id);
+		req.setAttribute("cmId", cmId);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/clubList.jsp");
 		dispatcher.forward(req, resp);

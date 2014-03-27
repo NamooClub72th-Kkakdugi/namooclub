@@ -27,15 +27,15 @@ public class ClubCreateCheckController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
-		String id = req.getParameter("id");
-		String communityName = service.findCommunity(id).getName();
-		String description = service.findCommunity(id).getDescription();
+		String cmId = req.getParameter("cmId");
+		String communityName = service.findCommunity(cmId).getName();
+		String description = service.findCommunity(cmId).getDescription();
 		
 		String clubCategory = req.getParameter("clubCategory");
 		String clubName = req.getParameter("clubName");
 		String clubDescription = req.getParameter("clubDescription");
 		
-		req.setAttribute("id", id);
+		req.setAttribute("cmId", cmId);
 		req.setAttribute("clubCategory", clubCategory);
 		req.setAttribute("clubName", clubName);
 		req.setAttribute("clubDescription", clubDescription);

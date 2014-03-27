@@ -27,13 +27,13 @@ public class ClubCreateInputController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
-		String id = req.getParameter("id");
+		String cmId = req.getParameter("cmId");
 		
-		String communityName = service.findCommunity(id).getName();
-		String description = service.findCommunity(id).getDescription();
+		String communityName = service.findCommunity(cmId).getName();
+		String description = service.findCommunity(cmId).getDescription();
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("description", description);
-		req.setAttribute("id", id);
+		req.setAttribute("cmId", cmId);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/clubCreateInput.jsp");
 		dispatcher.forward(req, resp);

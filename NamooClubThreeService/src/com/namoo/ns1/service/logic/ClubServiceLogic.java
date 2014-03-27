@@ -21,7 +21,7 @@ public class ClubServiceLogic implements ClubService {
 	}
 	
 	@Override
-	public void registClub(String category, String clubName, String description, String email) {
+	public void registClub(String category, String communityName, String clubName, String description, String email) {
 		//
 		if (isExistClubByName(clubName)) {
 			throw NamooExceptionFactory.createRuntime("이미 존재하는 클럽입니다.");

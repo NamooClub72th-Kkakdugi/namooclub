@@ -21,7 +21,7 @@ public interface ClubService {
 	 * 
 	 * @throws NamooRuntimeException
 	 */
-	public void registClub(String category, String clubName, String description, String email);
+	public void registClub(String category, String communityName, String clubName, String description, String email);
 
 	/**
 	 * 

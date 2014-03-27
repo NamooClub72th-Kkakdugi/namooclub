@@ -51,7 +51,7 @@
 								<c:forEach var="community" items="${joinCommunities}">
 									<li class="list-group-item"><span class="badge"></span>
 										<h4>
-											<a href="${ctx}/club/clubList.do?id=${community.id}">${community.name}</a>
+											<a href="${ctx}/club/clubList.do?cmId=${community.id}">${community.name}</a>
 										</h4>
 										<p>${community.description}</p>
 										<input type="hidden" name="id" value="${community.id}" />

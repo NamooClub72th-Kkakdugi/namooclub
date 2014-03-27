@@ -21,7 +21,7 @@
 						<h1>${communityName}</h1>
 						<p>${description}</p>
 						<p>
-						<input type="hidden" name="id" value="${id}" />
+							<input type="hidden" name="cmId" value="${cmId}" />
 							<input type="submit" class="btn btn-warning btn-lg"value="클럽 개설하기">
 						</p>
 					</form>
@@ -57,8 +57,9 @@
 								<a href="../team/index.html">${club.name}</a>
 							</h4>
 							<p>${club.description}</p>
-							<button type="button" class="btn btn-default btn-sm">멤버탈퇴
-								신청하기</button></li>
+							<button type="button" class="btn btn-default btn-sm" onclick="location.href='${ctx}/club/removeCheck.do?clId=${club.id}'">클럽삭제하기</button>
+							<button type="button" class="btn btn-default btn-sm">멤버탈퇴 신청하기</button></li>
+							
 					</ul>
 				</c:forEach>
 			</div>
