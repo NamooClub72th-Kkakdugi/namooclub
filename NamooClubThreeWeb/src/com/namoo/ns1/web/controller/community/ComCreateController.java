@@ -32,6 +32,7 @@ public class ComCreateController extends DefaultController {
 
 		service.registCommunity(communityName, description, email);
 		redirect(req, resp, "/community/comList.do");
+		
 	}
 
 }
