@@ -37,9 +37,13 @@ public class ClubWithdrawlCheckController extends DefaultController {
 		
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
 		Club club = service.findClub(clId);
-		
 		String clubName = club.getName();
 		req.setAttribute("clubName", clubName);
+		
+		CommunityService service2 = NamooClubServiceFactory.getInstance().getCommunityService();
+		Community community = service2.findCommunity(cmId);
+		String comName = community.getName();
+		req.setAttribute("ComName", comName);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/clubWithdrawlCheck.jsp");
 		dispatcher.forward(req, resp);

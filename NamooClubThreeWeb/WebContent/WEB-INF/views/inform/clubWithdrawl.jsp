@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -68,15 +67,11 @@ body {
 
 		<!-- body -->
 		<div class="info-body">
-			<form action="${ctx}/inform/clubWithdrawl.do?name=${name}&clId=${clId}&cmId=${cmId}" method="post">
+			<form action="${ctx}/club/clubList.do" method="get">
 				<h3>탈퇴 안내</h3>
-				<p>정말로 ${ComName} 커뮤니티의 ${clubName}에서 탈퇴 하시겠습니까??</p>
+				<p>탈퇴가 완료되었습니다.</p>
 				<input type="submit" value="확인" />
-				<button onclick="history.back(); return false;">취소</button>
 			</form>
-			<div class="row info-btn">
-				<button class="btn btn-large btn-default">홈으로 이동</button>
-			</div>
 		</div>
 
 		<!-- footer -->
