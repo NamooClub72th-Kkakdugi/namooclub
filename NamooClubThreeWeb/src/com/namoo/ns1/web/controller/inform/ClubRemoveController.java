@@ -20,10 +20,13 @@ public class ClubRemoveController extends DefaultController{
 	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
+		String cmId = req.getParameter("cmId");
 		String clId = req.getParameter("clId");
 		service.removeClub(clId);
 		
-		redirect(req, resp, "/club/clubList.do");
+		req.setAttribute("cmId", cmId);
+		
+		redirect(req, resp, "/club/clubList.do?cmId="+cmId);
 	}
 
 }
