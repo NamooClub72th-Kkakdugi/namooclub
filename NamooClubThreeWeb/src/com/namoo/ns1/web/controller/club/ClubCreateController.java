@@ -35,8 +35,8 @@ public class ClubCreateController extends DefaultController{
 		String clubDescription = req.getParameter("clubDescription");
 		
 		req.setAttribute("cmId", cmId);
-		
 		service.registClub(clubCategory, communityName, clubName, clubDescription, email);
+		
 		redirect(req, resp, "/club/clubList.do?cmId="+cmId);
 	}
 }
