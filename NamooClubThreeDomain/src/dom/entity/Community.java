@@ -38,12 +38,12 @@ public class Community implements Identifiable {
 	//--------------------------------------------------------------------------
 	// getter/setter
 	
-	public String getName() {
-		return name;
-	}
-
 	public String getId() {
 		return id;
+	}
+	
+	public String getName() {
+		return name;
 	}
 
 	public void setName(String name) {
@@ -99,12 +99,6 @@ public class Community implements Identifiable {
 		this.members.add(member);
 	}
 
-	@Override
-	public String getOId() {
-		// 
-		return id;
-	}
-
 	public void removeMember(String email) {
 		// 
 		CommunityMember found = null;
@@ -116,5 +110,11 @@ public class Community implements Identifiable {
 		if (found != null) {
 			members.remove(found);
 		}
+	}
+	
+	@Override
+	public String getOId() {
+		// 
+		return id;
 	}
 }
