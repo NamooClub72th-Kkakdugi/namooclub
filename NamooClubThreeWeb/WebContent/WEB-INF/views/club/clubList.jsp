@@ -21,8 +21,9 @@
 						<h1>${communityName}</h1>
 						<p>${description}</p>
 						<p>
-						
-							<input type="submit" class="btn btn-warning btn-lg" value="클럽 개설하기">
+
+							<input type="submit" class="btn btn-warning btn-lg"
+								value="클럽 개설하기">
 						</p>
 					</form>
 				</div>
@@ -53,11 +54,12 @@
 
 						<li class="list-group-item"><span class="badge"></span>
 							<h4>
-								<span class="label label-primary">${club.category}</span><a
-									href="../team/index.html">${club.name}</a>
+								<span class="label label-primary">${club.category}</span>&nbsp;
+								<a href="../team/index.html">${club.name}</a>
 							</h4>
 							<p>${club.description}</p>
-							<button type="button" class="btn btn-default btn-sm">멤버탈퇴 신청하기</button></li>
+							<button type="button" class="btn btn-default btn-sm">멤버탈퇴
+								신청하기</button></li>
 					</ul>
 				</c:forEach>
 			</div>
