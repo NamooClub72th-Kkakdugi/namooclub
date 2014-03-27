@@ -13,6 +13,8 @@ import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
 
+import dom.entity.Community;
+
 
 @WebServlet("/inform/comRemoveCheck.do")
 @LoginRequired
@@ -27,6 +29,9 @@ public class ComRemoveCheckController extends DefaultController {
 		
 		String id = req.getParameter("id");
 		req.setAttribute("id", id);
+		Community community = service.findCommunity(id);
+		String communityName = community.getName();
+		req.setAttribute("communityName", communityName);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/comRemoveCheck.jsp");
 		dispatcher.forward(req, resp);
