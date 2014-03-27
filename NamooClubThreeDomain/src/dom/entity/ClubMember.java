@@ -2,7 +2,7 @@ package dom.entity;
 
 import com.namoo.ns1.common.Identifiable;
 
-public class ClubMemeber implements Identifiable {
+public class ClubMember implements Identifiable {
 
 	private static final long serialVersionUID = -7152338592818382357L;
 
@@ -11,7 +11,7 @@ public class ClubMemeber implements Identifiable {
 	
 	//--------------------------------------------------------------------
 	
-	public ClubMemeber(String clubName, SocialPerson rolePerson) {
+	public ClubMember(String clubName, SocialPerson rolePerson) {
 		//
 		this.clubName = clubName;
 		this.rolePerson = rolePerson;

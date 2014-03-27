@@ -14,7 +14,7 @@ public class Club implements Identifiable {
 	private String description;
 
 	private ClubManager manager;
-	private List<ClubMemeber> members;
+	private List<ClubMember> members;
 
 	// -------------------------------------------------------------------
 
@@ -23,10 +23,10 @@ public class Club implements Identifiable {
 		this.id = id;
 		this.name = clubName;
 		this.description = description;
-		this.members = new ArrayList<ClubMemeber>();
+		this.members = new ArrayList<ClubMember>();
 
 		setManager(admin);
-		addMemeber(admin);
+		addMember(admin);
 	}
 
 	// --------------------------------------------------------------------
@@ -55,15 +55,15 @@ public class Club implements Identifiable {
 		return manager;
 	}
 
-	public List<ClubMemeber> getMembers() {
+	public List<ClubMember> getMembers() {
 		return members;
 	}
 
 	// ------------------------------------------------------------------
 	
-	public ClubMemeber findMemeber(String email) {
+	public ClubMember findMember(String email) {
 		//
-		for (ClubMemeber member : members) {
+		for (ClubMember member : members) {
 			if (member.getEmail().equals(email)) {
 				return member;
 			};
@@ -77,16 +77,16 @@ public class Club implements Identifiable {
 		this.manager = manager;
 	}
 	
-	public void addMemeber(SocialPerson rolePerson) {
+	public void addMember(SocialPerson rolePerson) {
 		//
-		ClubMemeber memeber = new ClubMemeber(name, rolePerson);
+		ClubMember memeber = new ClubMember(name, rolePerson);
 		this.members.add(memeber);
 	}
 	
-	public void removeMemeber(String email) {
+	public void removeMember(String email) {
 		//
-		ClubMemeber found = null;
-		for (ClubMemeber member : members) {
+		ClubMember found = null;
+		for (ClubMember member : members) {
 			if (member.getEmail().equals(email)) {
 				found = member;
 			}

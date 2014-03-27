@@ -195,5 +195,4 @@ public class CommunityServiceLogic implements CommunityService {
 		community.removeMember(email);
 		em.store(community);
 	}
-
 }
