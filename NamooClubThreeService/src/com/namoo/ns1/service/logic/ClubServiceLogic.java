@@ -21,7 +21,7 @@ public class ClubServiceLogic implements ClubService {
 	}
 	
 	@Override
-	public void registClub(String clubName, String description, String email) {
+	public void registClub(String category, String clubName, String description, String email) {
 		//
 		if (isExistClubByName(clubName)) {
 			throw NamooExceptionFactory.createRuntime("이미 존재하는 클럽입니다.");
@@ -33,7 +33,7 @@ public class ClubServiceLogic implements ClubService {
 		}
 		
 		String id = SequenceGenerator.getNextId(Club.class);
-		Club club = new Club(id, clubName, description, towner);
+		Club club = new Club(id, category, clubName, description, towner);
 		em.store(club);
 		}
 
@@ -121,9 +121,9 @@ public class ClubServiceLogic implements ClubService {
 	}
 
 	@Override
-	public List<ClubMember> findAllClubMember(String clubName) {
+	public List<ClubMember> findAllClubMember(String communityName) {
 		// 
-		Club club = em.find(Club.class, clubName);
+		Club club = em.find(Club.class, communityName);
 		
 		if (club == null) {
 			throw NamooExceptionFactory.createRuntime("클럽이 존재하지 않습니다.");
@@ -149,7 +149,7 @@ public class ClubServiceLogic implements ClubService {
 	}
 
 	@Override
-	public List<Club> findAllClubs() {
+	public List<Club> findAllClubs(String clubName) {
 		// 
 		return em.findAll(Club.class);
 	}
@@ -195,4 +195,5 @@ public class ClubServiceLogic implements ClubService {
 		club.removeMember(email);
 		em.store(club);
 	}
+
 }

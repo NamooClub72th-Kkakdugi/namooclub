@@ -21,7 +21,7 @@ public interface ClubService {
 	 * 
 	 * @throws NamooRuntimeException
 	 */
-	public void registClub(String clubName, String description, String email);
+	public void registClub(String category, String clubName, String description, String email);
 
 	/**
 	 * 
@@ -60,7 +60,7 @@ public interface ClubService {
 	/**
 	 * @return
 	 */
-	public List<Club> findAllClubs();
+	public List<Club> findAllClubs(String communityName);
 	
 	
 	/**

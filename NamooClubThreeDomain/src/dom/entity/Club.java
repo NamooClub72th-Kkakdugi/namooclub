@@ -12,17 +12,19 @@ public class Club implements Identifiable {
 	private String id;
 	private String name;
 	private String description;
+	private String category;
 
 	private ClubManager manager;
 	private List<ClubMember> members;
 
 	// -------------------------------------------------------------------
 
-	public Club(String id, String clubName, String description, SocialPerson admin) {
+	public Club(String id, String category, String clubName, String description, SocialPerson admin) {
 		//
 		this.id = id;
 		this.name = clubName;
 		this.description = description;
+		this.category = category;
 		this.members = new ArrayList<ClubMember>();
 
 		setManager(admin);
@@ -31,6 +33,10 @@ public class Club implements Identifiable {
 
 	// --------------------------------------------------------------------
 
+	public String getCategory() {
+		return category;
+	}
+	
 	public String getName() {
 		return name;
 	}
