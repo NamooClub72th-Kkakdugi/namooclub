@@ -33,6 +33,7 @@ public class ClubListController extends HttpServlet{
 		//
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
 		CommunityService comService = NamooClubServiceFactory.getInstance().getCommunityService();
+		
 		String id = req.getParameter("id");
 		Community community = comService.findCommunity(id);
 		String communityName = community.getName();
