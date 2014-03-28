@@ -92,9 +92,9 @@ public class ClubServiceLogic implements ClubService {
 	}
 
 	@Override
-	public void joinAsMember(String clubName, String email) {
+	public void joinAsMember(String clubId, String email) {
 		// 
-		Club club = em.find(Club.class, clubName);
+		Club club = em.find(Club.class, clubId);
 		
 		if (club == null) {
 			throw NamooExceptionFactory.createRuntime("클럽이 존재하지 않습니다.");

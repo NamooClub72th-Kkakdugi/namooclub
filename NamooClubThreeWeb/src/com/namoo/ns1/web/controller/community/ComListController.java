@@ -2,7 +2,6 @@ package com.namoo.ns1.web.controller.community;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;

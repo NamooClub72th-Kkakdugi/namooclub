@@ -25,15 +25,16 @@ public class ClubJoinController extends DefaultController {
 		//
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String clId =req.getParameter("clId") ;
 		String cmId = req.getParameter("cmId");
 		String name = req.getParameter("name");
 		String email = person.getEmail();
 		
 		req.setAttribute("name", name);
 		req.setAttribute("cmId", cmId);
-		req.setAttribute("clId", req.getParameter("clId"));
+		req.setAttribute("clId", clId);
 		
-		service.joinAsMember(cmId, email);
+		service.joinAsMember(clId, email);
 		
 		redirect(req, resp, "/club/clubList.do?name="+name+"&cmId="+cmId);
 	}
