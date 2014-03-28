@@ -37,6 +37,6 @@ public class ClubCreateController extends DefaultController{
 		
 		service.registClub(clubCategory, cmId, clubName, clubDescription, email);
 		
-		redirect(req, resp, "/club/clubList.do?cmId="+cmId);
+		redirect(req, resp, "/club/clubList.do?cmId="+cmId+"&name="+name);
 	}
 }

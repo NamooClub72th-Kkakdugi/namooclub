@@ -47,8 +47,7 @@ public class ComListController extends DefaultController{
 		req.setAttribute("name", name);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comList.jsp");
-		dispatcher.forward(req, resp);
-		
+		dispatcher.forward(req, resp);		
 	}
 	
 	private List<Community> filterList(List<Community> allCommunities, List<Community> joinCommunities) {
