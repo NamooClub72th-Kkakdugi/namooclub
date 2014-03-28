@@ -96,10 +96,7 @@
 											</h4>
 											<p>${club.description}</p>
 											<button type="button" class="btn btn-default btn-sm"
-												onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}&name=${name}&cmId=${cmId}'">클럽삭제하기</button>
-											<button type="button" class="btn btn-default btn-sm"
-												onclick="location.href='${ctx}/inform/clubWithdrawlCheck.do?clId=${club.id}&name=${name}&cmId=${cmId}'">멤버탈퇴
-												신청하기</button></li>
+												onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}&name=${name}&cmId=${cmId}'">클럽가입하기</button>
 									</ul>
 								</c:forEach>
 						</ul>
