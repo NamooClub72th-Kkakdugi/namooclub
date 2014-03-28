@@ -34,6 +34,7 @@ public class ClubCreateInputController extends HttpServlet{
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("description", description);
 		req.setAttribute("cmId", cmId);
+		req.setAttribute("name", req.getParameter("name"));
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/clubCreateInput.jsp");
 		dispatcher.forward(req, resp);

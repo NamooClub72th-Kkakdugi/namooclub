@@ -51,7 +51,10 @@
 								<c:forEach var="community" items="${joinCommunities}">
 									<li class="list-group-item"><span class="badge"></span>
 										<h4>
-											<a href="${ctx}/club/clubList.do?cmId=${community.id}&name=${name}">${community.name}</a>
+										<c:if test="${community.manager.name == name}">
+										<span class="label label-warning">관리자</span>
+										</c:if>
+											<a href="${ctx}/club/clubList.do?cmId=${community.id}&name=${name}">${community.name}&nbsp;(회원수 : ${community.members.size()})</a>
 										</h4>
 										<p>${community.description}</p>
 										<input type="hidden" name="id" value="${community.id}" />

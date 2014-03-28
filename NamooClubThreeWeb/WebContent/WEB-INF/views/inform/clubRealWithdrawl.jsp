@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -68,20 +67,16 @@ body {
 
 		<!-- body -->
 		<div class="info-body">
-			<form action="${ctx}/inform/clubRealWithdrawl.do" method="post">
+			<form action="${ctx}/inform/clubWithdrawl.do" method="get">
 				<h3>탈퇴 안내</h3>
-				<p>정말로 ${ComName} 커뮤니티의 ${clubName}에서 탈퇴 하시겠습니까??</p>
 				<input type="hidden" name="name" value="${name}" />
 				<input type="hidden" name="clId" value="${clId}" />
 				<input type="hidden" name="cmId" value="${cmId}" />
+				<p>마지막 회원입니다. 탈퇴하시면 클럽은 자동삭제됩니다. 탈퇴하시겠습니까?</p>
 				<input type="submit" value="확인" />
-				<button onclick="history.back(); return false;">취소</button>
+				<button onclick="history.back();return false;"></button>
 			</form>
-			<div class="row info-btn">
-				<button class="btn btn-large btn-default">홈으로 이동</button>
-			</div>
 		</div>
-
 		<!-- footer -->
 		<div class="info-footer">
 			<p>© NamooSori 2014.</p>
