@@ -13,6 +13,7 @@ import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
 
+import dom.entity.Community;
 import dom.entity.SocialPerson;
 
 @WebServlet("/commission/comCommission.do")
@@ -31,11 +32,22 @@ public class ComCommissionController extends DefaultController{
 		String cmId = req.getParameter("cmId");
 		String email = req.getParameter("email");
 		
-		req.setAttribute("name", name);
 		
+		Community community = service.findCommunity(cmId);
+		System.out.println("Before>>>>>>");
+		System.out.println(community.getManager().getName());
+		
+		System.out.println("email : " + email);
 		SocialPerson person = townService.findTowner(email);
+		System.out.println("person : " + person.getName());
 		service.commissionManagerCommunity(cmId, person);
 		
+		community = service.findCommunity(cmId);
+		System.out.println(">>>>>");
+		System.out.println(community.getManager().getName());
+		 
+		
+		req.setAttribute("name", person.getName());
 		redirect(req, resp, "/community/comList.do?name="+name);
 	}
 
