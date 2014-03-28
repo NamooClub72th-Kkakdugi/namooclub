@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -45,6 +46,7 @@
 						<div class="page-header">
 							<h2 id="container">가입 커뮤니티</h2>
 						</div>
+
 						<form action="${ctx}/inform/comWithdrawlCheck.do?name=${name}" method="post">
 							<ul class="list-group">
 								<c:forEach var="community" items="${joinCommunities}">
@@ -56,12 +58,12 @@
 											<a href="${ctx}/club/clubList.do?cmId=${community.id}&name=${name}">${community.name}&nbsp;(회원수 : ${community.members.size()} 클럽수 : ${community.clubs.size()})</a>
 										</h4>
 										<p>${community.description}</p>
+										<span class="badge">개설 날짜 : <fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span>
 										<input type="hidden" name="id" value="${community.id}" />
 										<c:choose>
 										<c:when test="${community.manager.name == name}">
-										<button class="btn btn-default btn-sm" onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${community.id}&name=${name}'; return false;">삭제하기</button><br/>
-										<button class="label label-info" onclick="location.href='${ctx}/commission/comSelectMem.xhtml?cmId=${community.id}&name=${name}'; return false;">권한 위임하기</button>
-										관리자는 탈퇴할 수 없습니다. 관리자 권한을 위임해야 합니다.
+										<button class="btn btn-default btn-sm" onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${community.id}&name=${name}'; return false;">삭제하기</button>
+										<input type="submit" value="멤버탈퇴" disabled="disabled" class="btn btn-default btn-sm" />
 										</c:when>
 										<c:otherwise>
 										<button class="btn btn-default btn-sm" disabled="disabled" onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${community.id}&name=${name}'; return false;">삭제하기</button>
