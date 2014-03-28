@@ -2,7 +2,6 @@ package com.namoo.ns1.web.controller.inform;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -26,20 +25,20 @@ public class ClubWithdrawlController extends DefaultController {
 		// 
 		
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
-
 		String email = person.getEmail();
-		String clId = req.getParameter("clId");
 		
+		String name = req.getParameter("name");
+		String clId = req.getParameter("clId");
 		String cmId = req.getParameter("cmId");
-		req.setAttribute("cmId", cmId);
-
-		req.setAttribute("name", req.getParameter("name"));
+		
+		req.setAttribute("name", name);
 		req.setAttribute("clId", clId);
+		req.setAttribute("cmId", cmId);
 		
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
 		service.withdrawalClub(clId, email);
 		
-		resp.sendRedirect("/WEB-INF/views/inform/clubWithdrawl.jsp");
+		redirect(req, resp, "/club/clubList.do?cmId=" + cmId);
 		
 	}
 }

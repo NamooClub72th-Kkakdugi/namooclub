@@ -34,28 +34,31 @@ public class ClubListController extends HttpServlet{
 		//
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
 		CommunityService comService = NamooClubServiceFactory.getInstance().getCommunityService();
-		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		
-		String email = person.getEmail();
 		String name = req.getParameter("name");
+		req.setAttribute("name", name);
+		
 		String cmId = req.getParameter("cmId");
+		req.setAttribute("cmId", cmId);
+		
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String email = person.getEmail();
 		
 		Community community = comService.findCommunity(cmId);
 		String communityName = community.getName();
 		String description = community.getDescription();
-		
-		List<Club> allClubs = service.findAllClubs();
-		List<Club> joinClubs = service.findBelongclubs(email);
-		
-		for (Club allClub : allClubs) {
-			
-		}
-		
-		req.setAttribute("allClubs", allClubs);
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("description", description);
-		req.setAttribute("cmId", cmId);
-		req.setAttribute("name", name);
+		
+		
+		
+		List<Club> joinClubs = service.findBelongclubs(email);
+		
+		List<Club> allClubs = service.findAllClubs(description);
+		for ( Club joinClub: joinClubs) {
+			allClubs.remove(joinClub);
+		}
+		req.setAttribute("clubs", allClubs);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/clubList.jsp");
 		dispatcher.forward(req, resp);
