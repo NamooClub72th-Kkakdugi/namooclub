@@ -12,8 +12,6 @@ import com.namoo.ns1.service.facade.TownerService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 
-
-
 @WebServlet("/user/login.do")
 public class LoginController extends DefaultController {
 

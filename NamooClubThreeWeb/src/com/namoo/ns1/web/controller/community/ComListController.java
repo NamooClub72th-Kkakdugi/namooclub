@@ -24,8 +24,6 @@ public class ComListController extends DefaultController{
 
 	private static final long serialVersionUID = 2015998138536728657L;
 
-
-
 	@Override
 	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//

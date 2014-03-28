@@ -11,8 +11,10 @@ import com.namoo.ns1.service.facade.ClubService;
 import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
+import com.namoo.ns1.web.controller.shared.LoginRequired;
 
 @WebServlet("/inform/clubRemove.do")
+@LoginRequired
 public class ClubRemoveController extends DefaultController{
 
 	private static final long serialVersionUID = -3829572762564286577L;
