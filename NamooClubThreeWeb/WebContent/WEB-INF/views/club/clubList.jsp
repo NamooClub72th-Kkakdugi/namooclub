@@ -71,24 +71,15 @@
 												 <a href="${ctx}/club/clubMemberList.do" return false;>${club.name}&nbsp;(회원수 : ${club.members.size()})</a>
 							
 											</h4>
-											<p>${club.description}</p> <c:choose>
+											<p>${club.description}</p> 
+											<c:choose>
 												<c:when test="${club.manager.name == name}">
-													<button type="button" class="btn btn-default btn-sm"
-														onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}&cmId=${cmId}'">클럽
-														삭제하기</button>
-													<button type="button" class="btn btn-default btn-sm"
-														disabled="disabled"
-														onclick="location.href='${ctx}/inform/clubWithdrawlCheck.do?clId=${club.id}&cmId=${cmId}'">멤버탈퇴
-														신청하기</button>
+													<button type="button" class="btn btn-default btn-sm" onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}&cmId=${cmId}'">클럽 삭제하기</button>
+													<button class="label label-info" onclick="location.href='${ctx}/commission/clubSelectMem.xhtml?clId=${club.id}&cmId=${cmId}'; return false;">권한 위임하기</button>
 												</c:when>
 												<c:otherwise>
-													<button type="button" class="btn btn-default btn-sm"
-														disabled="disabled"
-														onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}&cmId=${cmId}'">클럽
-														삭제하기</button>
-													<button type="button" class="btn btn-default btn-sm"
-														onclick="location.href='${ctx}/inform/clubWithdrawlCheck.do?clId=${club.id}&cmId=${cmId}'">멤버탈퇴
-														신청하기</button>
+													<button type="button" class="btn btn-default btn-sm" disabled="disabled"onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}&cmId=${cmId}'">클럽 삭제하기</button>
+													<button type="button" class="btn btn-default btn-sm" onclick="location.href='${ctx}/inform/clubWithdrawlCheck.do?clId=${club.id}&cmId=${cmId}'">멤버탈퇴 신청하기</button>
 												</c:otherwise>
 											</c:choose></li>
 									</ul>

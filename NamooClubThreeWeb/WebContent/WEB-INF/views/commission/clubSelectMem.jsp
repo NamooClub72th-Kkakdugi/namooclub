@@ -19,8 +19,8 @@
 						<h1>나무 커뮤니티와 함께!</h1>
 						<p>나무 커뮤니티와 함께 특정 취미와 관심사, 특정 그룹 또는 조직에 관한 대화를 시작하세요.</p>
 						<p>
-							<a href="${ctx}/view/community/comCreateInput.xhtml"
-								class="btn btn-warning btn-lg">커뮤니티 개설하기</a>
+							<a href="${ctx}/club/clubCreateInput.xhtml"
+								class="btn btn-warning btn-lg">클럽 개설하기</a>
 						</p>
 					</div>
 				</div>
@@ -32,7 +32,7 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="page-header">
-					<h2 id="container">${communityName}의멤버목록</h2>
+					<h2 id="container">${clubName}의멤버목록</h2>
 				</div>
 				<table class="table table-hover" id="memberTable">
 					<thead>
@@ -48,7 +48,7 @@
 								<td>${member.name}</td>
 								<td>${member.email}</td>
 						
-								<td> <button type="button" class="btn btn-default btn-sm" onclick="location.href='${ctx}/commission/comCommission.do?cmId=${cmId}&email=${member.email}'">위임</button></td>
+								<td> <button type="button" class="btn btn-default btn-sm" onclick="location.href='${ctx}/commission/clubCommission.do?clId=${clId}&email=${member.email}&cmId=${cmId}'">위임</button></td>
 								</tr>
 							</c:forEach>
 					</tbody>

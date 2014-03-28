@@ -63,7 +63,7 @@
 								<label class="col-lg-2 control-label" >클럽명</label>
 
 								<div class="col-lg-10">
-									<input type="text" name="clubName" class="form-control" placeholder="클럽명">
+									<input type="text" name="clubName" class="form-control" placeholder="클럽명" required>
 								</div>
 							</div>
 							<div class="form-group">
@@ -71,7 +71,7 @@
 									대표문구</label>
 
 								<div class="col-lg-10">
-									<textarea class="form-control" rows="3" id="textArea" name="clubDescription"></textarea>
+									<textarea class="form-control" rows="3" id="textArea" name="clubDescription" required></textarea>
 									<span class="help-block">클럽을 소개하는 대표문구를 입력해 주세요. 클럽 홈화면에
 										입력하신 문구가 출력됩니다.</span>
 								</div>
@@ -80,15 +80,15 @@
 								<label class="col-lg-2 control-label">클럽 멤버 가입을 위한 질문내용</label>
 
 								<div class="col-lg-10">
-									<input type="text" name="clubQuOne" class="form-control" placeholder="질문내용 1">
-									<input type="text" name="clubQuTwo" class="form-control" placeholder="질문내용 2">
-									<input type="text" name="clubQuThree" class="form-control" placeholder="질문내용 3">
+									<input type="text" name="clubQuOne" class="form-control" placeholder="질문내용 1" required>
+									<input type="text" name="clubQuTwo" class="form-control" placeholder="질문내용 2" required>
+									<input type="text" name="clubQuThree" class="form-control" placeholder="질문내용 3" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<div class="col-lg-10 col-lg-offset-2">
 									<button type="submit" class="btn btn-primary">확인</button>
-									<button class="btn btn-default" onclick="location.href='${ctx}/club/clubList.do'; return false;">취소</button>
+									<button class="btn btn-default" onclick="location.href='${ctx}/club/clubList.do?cmId=${cmId}'; return false;">취소</button>
 								</div>
 							</div>
 						</fieldset>

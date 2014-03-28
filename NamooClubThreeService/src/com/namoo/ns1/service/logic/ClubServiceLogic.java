@@ -207,4 +207,13 @@ public class ClubServiceLogic implements ClubService {
 		em.store(club);
 	}
 
+	@Override
+	public void commissionManagerCommunity(String clId, SocialPerson rolePerson) {
+		//
+		Club club = em.find(Club.class, clId);
+		club.setManager(rolePerson);
+		
+		em.store(club);
+	}
+
 }

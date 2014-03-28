@@ -6,6 +6,7 @@ import com.namoo.ns1.service.logic.exception.NamooRuntimeException;
 
 import dom.entity.Club;
 import dom.entity.ClubMember;
+import dom.entity.SocialPerson;
 
 public interface ClubService {
 
@@ -117,5 +118,7 @@ public interface ClubService {
 	 * @param email
 	 */
 	public void withdrawalClub(String clubName, String email);
+	
+	public void commissionManagerCommunity(String clId, SocialPerson rolePerson);
 
 }

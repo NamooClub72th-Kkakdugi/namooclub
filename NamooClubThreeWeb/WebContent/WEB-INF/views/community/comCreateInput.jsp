@@ -39,14 +39,14 @@
 								<label class="col-lg-2 control-label">커뮤니티명</label>
 
 								<div class="col-lg-10">
-									<input type="text" name="communityName" class="form-control" placeholder="커뮤니티명">
+									<input type="text" name="communityName" class="form-control" placeholder="커뮤니티명" required>
 								</div>
 							</div>
 							<div class="form-group">
 								<label for="textArea"class="col-lg-2 control-label">커뮤니티 대표문구</label>
 
 								<div class="col-lg-10">
-									<textarea name="description" class="form-control" rows="3" id="textArea"></textarea>
+									<textarea name="description" class="form-control" rows="3" id="textArea" required></textarea>
 									<span class="help-block">커뮤니티를 소개하는 대표문구를 입력해 주세요. 커뮤니티 홈화면에
 										입력하신 문구가 출력됩니다.</span>
 								</div>
