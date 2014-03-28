@@ -31,10 +31,12 @@ public class ClubCreateCheckController extends HttpServlet{
 		String communityName = service.findCommunity(cmId).getName();
 		String description = service.findCommunity(cmId).getDescription();
 		
+		String name = req.getParameter("name");
 		String clubCategory = req.getParameter("clubCategory");
 		String clubName = req.getParameter("clubName");
 		String clubDescription = req.getParameter("clubDescription");
 		
+		req.setAttribute("name", name);
 		req.setAttribute("cmId", cmId);
 		req.setAttribute("clubCategory", clubCategory);
 		req.setAttribute("clubName", clubName);

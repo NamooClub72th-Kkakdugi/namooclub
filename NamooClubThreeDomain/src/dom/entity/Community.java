@@ -15,6 +15,7 @@ public class Community implements Identifiable {
 	
 	private CommunityManager manager;
 	private List<CommunityMember> members;
+	private List<Club> clubs;
 
 	//--------------------------------------------------------------------------
 	// constructors
@@ -30,6 +31,7 @@ public class Community implements Identifiable {
 		this.name = communityName;
 		this.description = description;
 		this.members = new ArrayList<CommunityMember>();
+		this.clubs = new ArrayList<Club>();
 		
 		setManager(admin);
 		addMember(admin);
@@ -109,6 +111,27 @@ public class Community implements Identifiable {
 		}
 		if (found != null) {
 			members.remove(found);
+		}
+	}
+	
+	public void addClub(Club club) {
+		//
+		if (this.clubs == null) {
+			this.clubs = new ArrayList<Club>();
+		}
+		this.clubs.add(club);
+	}
+	
+	public void removeClub(String clubId) {
+		//
+		Club found = null;
+		for (Club club : clubs) {
+			if (club.getId().equals(clubId)) {
+				found = club;
+			}
+		}
+		if (found != null) {
+			clubs.remove(found);
 		}
 	}
 	

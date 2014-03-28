@@ -60,7 +60,7 @@ public interface ClubService {
 	/**
 	 * @return
 	 */
-	public List<Club> findAllClubs(String communityName);
+	public List<Club> findAllClubs();
 	
 	
 	/**
@@ -90,7 +90,7 @@ public interface ClubService {
 	/**
 	 * @param clubName
 	 */
-	public void removeClub(String clubName);
+	public void removeClub(String clubId, String cmId);
 	
 	/**
 	 * 자신이 회원으로 있는 클럽 목록조회

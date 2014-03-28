@@ -21,6 +21,7 @@
 						<h1>${communityName}</h1>
 						<p>${description}</p>
 						<p>
+						<input type="hidden" name="name" value="${name}" />
 							<input type="hidden" name="cmId" value="${cmId}" />
 							<input type="submit" class="btn btn-warning btn-lg"value="클럽 개설하기">
 						</p>

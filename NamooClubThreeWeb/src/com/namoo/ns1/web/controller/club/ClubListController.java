@@ -16,6 +16,7 @@ import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 
 import dom.entity.Club;
 import dom.entity.Community;
+import dom.entity.SocialPerson;
 
 @WebServlet("/club/clubList.do")
 public class ClubListController extends HttpServlet{
@@ -33,15 +34,24 @@ public class ClubListController extends HttpServlet{
 		//
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
 		CommunityService comService = NamooClubServiceFactory.getInstance().getCommunityService();
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		
+		String email = person.getEmail();
 		String name = req.getParameter("name");
 		String cmId = req.getParameter("cmId");
+		
 		Community community = comService.findCommunity(cmId);
 		String communityName = community.getName();
 		String description = community.getDescription();
 		
-		List<Club> clubs = service.findAllClubs(communityName);
-		req.setAttribute("clubs", clubs);
+		List<Club> allClubs = service.findAllClubs();
+		List<Club> joinClubs = service.findBelongclubs(email);
+		
+		for (Club allClub : allClubs) {
+			
+		}
+		
+		req.setAttribute("allClubs", allClubs);
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("description", description);
 		req.setAttribute("cmId", cmId);

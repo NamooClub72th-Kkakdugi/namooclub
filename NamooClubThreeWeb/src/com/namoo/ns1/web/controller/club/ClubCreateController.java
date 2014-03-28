@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.namoo.ns1.service.facade.ClubService;
-import com.namoo.ns1.service.facade.CommunityService;
 import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 
@@ -23,19 +22,20 @@ public class ClubCreateController extends DefaultController{
 	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
-		CommunityService comService = NamooClubServiceFactory.getInstance().getCommunityService();
-		
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		
 		String email = person.getEmail();
 		String cmId = req.getParameter("cmId");
-		String communityName = comService.findCommunity(cmId).getName();
+		String name = req.getParameter("name");
 		
 		String clubCategory = req.getParameter("clubCategory");
 		String clubName = req.getParameter("clubName");
 		String clubDescription = req.getParameter("clubDescription");
 		
+		req.setAttribute("name", name);
 		req.setAttribute("cmId", cmId);
-		service.registClub(clubCategory, communityName, clubName, clubDescription, email);
+		
+		service.registClub(clubCategory, cmId, clubName, clubDescription, email);
 		
 		redirect(req, resp, "/club/clubList.do?cmId="+cmId);
 	}

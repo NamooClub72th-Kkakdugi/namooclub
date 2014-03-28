@@ -7,7 +7,7 @@
 <%@ include file="/WEB-INF/views/common/common.jsp"%>
 </head>
 <body>
-<%@ include file="/WEB-INF/views/common/mainNavigator.jsp"%>
+	<%@ include file="/WEB-INF/views/common/mainNavigator.jsp"%>
 
 	<!-- Header ========================================================================================== -->
 	<header>
@@ -43,7 +43,10 @@
 
 				<div class="well">
 					<p>나와 같은 관심사를 가진 멤버를 모집하고 열심히 운영하여 클럽을 성장시켜 보세요.</p>
-					<form class="form-horizontal" action="${ctx}/club/clubCreate.do?cmId=${cmId}" method="post">
+					<form class="form-horizontal" action="${ctx}/club/clubCreate.do" method="post">
+						<input type="hidden" name="cmId" value="${cmId}" />
+						<input type="hidden" name="name" value="${name}" />
+
 						<fieldset>
 							<div class="form-group">
 								<label class="col-lg-2 control-label">클럽 카테고리</label>
@@ -65,7 +68,7 @@
 								<div class="col-lg-10">
 									<input type="text" class="form-control" id="textArea"
 										name="clubDescription" value="${clubDescription}" readonly="readonly">
-									
+
 									<span class="help-block">클럽을 소개하는 대표문구를 입력해 주세요. 클럽 홈화면에 입력하신
 										문구가 출력됩니다.</span>
 								</div>

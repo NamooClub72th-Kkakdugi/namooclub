@@ -9,6 +9,7 @@ import com.namoo.ns1.service.util.SequenceGenerator;
 
 import dom.entity.Club;
 import dom.entity.ClubMember;
+import dom.entity.Community;
 import dom.entity.SocialPerson;
 
 public class ClubServiceLogic implements ClubService {
@@ -21,7 +22,7 @@ public class ClubServiceLogic implements ClubService {
 	}
 	
 	@Override
-	public void registClub(String category, String communityName, String clubName, String description, String email) {
+	public void registClub(String category, String cmId, String clubName, String description, String email) {
 		//
 		if (isExistClubByName(clubName)) {
 			throw NamooExceptionFactory.createRuntime("이미 존재하는 클럽입니다.");
@@ -32,8 +33,15 @@ public class ClubServiceLogic implements ClubService {
 			throw NamooExceptionFactory.createRuntime("존재하지 않는 주민입니다.");
 		}
 		
+		System.out.println("cmid:"+cmId);
+		Community community = em.find(Community.class, cmId);
+		System.out.println(community);
+		
 		String id = SequenceGenerator.getNextId(Club.class);
 		Club club = new Club(id, category, clubName, description, towner);
+		
+		community.addClub(club);
+		em.store(community);
 		em.store(club);
 		}
 
@@ -143,13 +151,17 @@ public class ClubServiceLogic implements ClubService {
 	}
 
 	@Override
-	public void removeClub(String clubName) {
-		// 
-		em.remove(Club.class, clubName);
+	public void removeClub(String clubId, String cmId) {
+		//
+		Community community = em.find(Community.class, cmId);
+		community.removeClub(clubId);
+		
+		em.store(community);
+		em.remove(Club.class, clubId);
 	}
 
 	@Override
-	public List<Club> findAllClubs(String clubName) {
+	public List<Club> findAllClubs() {
 		// 
 		return em.findAll(Club.class);
 	}
@@ -185,9 +197,9 @@ public class ClubServiceLogic implements ClubService {
 	}
 
 	@Override
-	public void withdrawalClub(String clubName, String email) {
+	public void withdrawalClub(String clubId, String email) {
 		//
-		Club club = em.find(Club.class, clubName);
+		Club club = em.find(Club.class, clubId);
 		if (club == null) {
 			throw NamooExceptionFactory.createRuntime("클럽이 존재하지 않습니다.");
 		}
