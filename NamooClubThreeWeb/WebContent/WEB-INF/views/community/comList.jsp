@@ -65,7 +65,7 @@
 										<button class="label label-info" onclick="location.href='${ctx}/commission/comSelectMem.xhtml?cmId=${community.id}'; return false;">권한 위임하기</button>
 										</c:when>
 										<c:otherwise>
-										<button class="btn btn-default btn-sm" disabled="disabled" onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${community.id}'; return false;">삭제하기</button>
+										<button class="btn btn-default btn-sm" disabled="disabled" onclick="location.href='${ctx}/inform/comWithdrawlCheck.do?id=${community.id}'; return false;">삭제하기</button>
 										<input type="submit" value="멤버탈퇴" class="btn btn-default btn-sm" />
 										</c:otherwise>
 										</c:choose>

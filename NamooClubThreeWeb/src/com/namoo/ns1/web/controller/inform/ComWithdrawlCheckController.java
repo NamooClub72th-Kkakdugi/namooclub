@@ -28,12 +28,15 @@ public class ComWithdrawlCheckController extends DefaultController {
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String name = person.getName();
 		String id = req.getParameter("id");
-		req.setAttribute("id", id);
-		req.setAttribute("name", name);
+		System.out.println(id);
+	
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		Community community = service.findCommunity(id);
 		String communityName = community.getName();
 		req.setAttribute("communityName", communityName);
+		
+		req.setAttribute("id", id);
+		req.setAttribute("name", name);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/comWithdrawlCheck.jsp");
 		dispatcher.forward(req, resp);
