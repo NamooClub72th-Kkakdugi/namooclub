@@ -1,6 +1,7 @@
 package dom.entity;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import com.namoo.ns1.common.Identifiable;
@@ -12,6 +13,7 @@ public class Community implements Identifiable {
 	private String id;
 	private String name;
 	private String description;
+	private Date openDate;
 	
 	private CommunityManager manager;
 	private List<CommunityMember> members;
@@ -32,6 +34,7 @@ public class Community implements Identifiable {
 		this.description = description;
 		this.members = new ArrayList<CommunityMember>();
 		this.clubs = new ArrayList<Club>();
+		this.openDate = new Date();
 		
 		setManager(admin);
 		addMember(admin);
@@ -71,10 +74,19 @@ public class Community implements Identifiable {
 	public List<Club> getClubs() {
 		return clubs;
 	}
+	
 
 	//--------------------------------------------------------------------------
 	// public methods
 	
+	public Date getOpenDate() {
+		return openDate;
+	}
+
+	public void setOpenDate(Date openDate) {
+		this.openDate = openDate;
+	}
+
 	public CommunityMember findMember(String email) {
 		//
 		for (CommunityMember member : members) {
