@@ -44,6 +44,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-12">
+	
 				<!-- ★★★ Contents -->
 				<div class="page-header">
 					<h2 id="container">클럽</h2>
@@ -62,6 +63,7 @@
 							
 					</ul>
 				</c:forEach>
+		
 			</div>
 		</div>
 	</div>
