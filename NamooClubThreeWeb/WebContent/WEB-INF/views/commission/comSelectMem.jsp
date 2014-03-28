@@ -32,20 +32,20 @@
 		<div class="row">
 			<div class="col-lg-12">
 				<div class="page-header">
-					<h2 id="container">${communityName}의 멤버목록</h2>
+					<h2 id="container">${communityName}의멤버목록</h2>
 				</div>
-				<form action="${ctx}/commission/comCommission.do" method="post"></form>
+				<form action="${ctx}/commission/comCommission.do" method="post">
 					<ul class="list-group">
 						<c:forEach var="member" items="${members}">
 							<li class="list-group-item"><span class="badge"></span>
 								<h4>${member.name}</h4>
-								<p>${member.email}</p>
-								<input type="hidden" name="name" value="${name}" />
-								<input type="hidden" name="cmId" value="${cmId}" />
-								<input type="hidden" name="email" value="${member.email}" />
+								<p>${member.email}</p> <input type="hidden" name="name" value="${name}" />
+								<input type="hidden" name="cmId" value="${cmId}" /> <input
+								type="hidden" name="email" value="${member.email}" />
 								<button type="submit" class="label label-info">위임</button>
 						</c:forEach>
 					</ul>
+				</form>
 			</div>
 		</div>
 		<%@ include file="/WEB-INF/views/common/footer.jsp"%>
