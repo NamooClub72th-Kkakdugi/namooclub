@@ -25,10 +25,11 @@ public class ComCreateController extends DefaultController {
 		//
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String name = person.getName();
 		String email = person.getEmail();
 		String communityName = req.getParameter("communityName");
 		String description = req.getParameter("description");
-		req.setAttribute("name", req.getParameter("name"));
+		req.setAttribute("name", name);
 
 		service.registCommunity(communityName, description, email);
 		redirect(req, resp, "/community/comList.do");

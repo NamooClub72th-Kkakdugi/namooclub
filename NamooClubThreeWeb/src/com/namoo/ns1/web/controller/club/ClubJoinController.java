@@ -27,7 +27,7 @@ public class ClubJoinController extends DefaultController {
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String clId =req.getParameter("clId") ;
 		String cmId = req.getParameter("cmId");
-		String name = req.getParameter("name");
+		String name = person.getName();
 		String email = person.getEmail();
 		
 		req.setAttribute("name", name);

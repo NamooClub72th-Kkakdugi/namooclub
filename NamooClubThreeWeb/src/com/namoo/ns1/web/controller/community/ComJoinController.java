@@ -27,8 +27,8 @@ public class ComJoinController extends DefaultController {
 
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String id = req.getParameter("id");
-		String name = req.getParameter("name");
 		String email = person.getEmail();
+		String name = person.getName();
 
 		service.joinAsMember(id, email);
 		req.setAttribute("name", name);

@@ -7752,10 +7752,3 @@ input[type="color"]:focus,
     position: fixed;
 }
 
-.memberTable, th, td {
-	border : 1px solid #222;
-}
-
-.memberTable {
-	border-collapse: collapse;
-}

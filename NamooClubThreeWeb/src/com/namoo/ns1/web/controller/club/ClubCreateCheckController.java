@@ -13,6 +13,8 @@ import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
 
+import dom.entity.SocialPerson;
+
 @WebServlet("/club/clubCreateCheck.do")
 @LoginRequired
 public class ClubCreateCheckController extends DefaultController{
@@ -22,12 +24,13 @@ public class ClubCreateCheckController extends DefaultController{
 	@Override
 	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		String cmId = req.getParameter("cmId");
 		String communityName = service.findCommunity(cmId).getName();
 		String description = service.findCommunity(cmId).getDescription();
 		
-		String name = req.getParameter("name");
+		String name = person.getName();
 		String clubCategory = req.getParameter("clubCategory");
 		String clubName = req.getParameter("clubName");
 		String clubDescription = req.getParameter("clubDescription");

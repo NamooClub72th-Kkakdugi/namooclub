@@ -30,7 +30,6 @@ public class ComListController extends DefaultController{
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
-		String name = person.getName();
 		String email = person.getEmail();
 		
 		List<Community> allCommunities = service.findAllCommunities();
@@ -39,7 +38,6 @@ public class ComListController extends DefaultController{
 
 		req.setAttribute("joinCommunities", joinCommunities);
 		req.setAttribute("unjoincommunities", unjoinCommunities);
-		req.setAttribute("name", name);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comList.jsp");
 		dispatcher.forward(req, resp);		

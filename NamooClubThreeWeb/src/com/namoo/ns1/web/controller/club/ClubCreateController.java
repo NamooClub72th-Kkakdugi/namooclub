@@ -28,7 +28,7 @@ public class ClubCreateController extends DefaultController{
 		
 		String email = person.getEmail();
 		String cmId = req.getParameter("cmId");
-		String name = req.getParameter("name");
+		String name = person.getName();
 		
 		String clubCategory = req.getParameter("clubCategory");
 		String clubName = req.getParameter("clubName");

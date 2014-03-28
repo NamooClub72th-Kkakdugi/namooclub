@@ -68,9 +68,10 @@ body {
 
 		<!-- body -->
 		<div class="info-body">
-			<form action="${ctx}/inform/comWithdrawl.do?name=${name}&id=${id}" method="post">
+			<form action="${ctx}/inform/comWithdrawl.do" method="post">
 				<h3>탈퇴 안내</h3>
 				<p>정말로 ${communityName}에서 탈퇴 하시겠습니까??</p>
+				<input type="hidden" name="id" value="${id}" />
 				<input type="submit" value="확인" />
 				<button onclick="history.back(); return false;">취소</button>
 			</form>

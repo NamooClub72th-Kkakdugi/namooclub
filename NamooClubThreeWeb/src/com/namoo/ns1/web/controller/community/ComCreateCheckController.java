@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
 
+import dom.entity.SocialPerson;
+
 @WebServlet("/community/comCreateCheck.do")
 @LoginRequired
 public class ComCreateCheckController extends DefaultController{
@@ -20,9 +22,11 @@ public class ComCreateCheckController extends DefaultController{
 	@Override
 	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
+		SocialPerson person = (SocialPerson)req.getSession().getAttribute("loginUser");
+		String name = person.getName();
 		String communityName = req.getParameter("communityName");
 		String description = req.getParameter("description");
-		req.setAttribute("name", req.getParameter("name"));
+		req.setAttribute("name", name);
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("description", description);
 		

@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
 
+import dom.entity.SocialPerson;
+
 @WebServlet("/club/clubJoinInput.xhtml")
 @LoginRequired
 public class ClubJoinInputController extends DefaultController {
@@ -20,7 +22,9 @@ public class ClubJoinInputController extends DefaultController {
 	@Override
 	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
-		req.setAttribute("name", req.getParameter("name"));
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String name = person.getName();
+		req.setAttribute("name", name);
 		req.setAttribute("cmId", req.getParameter("cmId"));
 		req.setAttribute("clId", req.getParameter("clId"));
 		

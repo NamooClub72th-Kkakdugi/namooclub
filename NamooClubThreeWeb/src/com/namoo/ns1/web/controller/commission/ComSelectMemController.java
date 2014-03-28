@@ -14,6 +14,7 @@ import com.namoo.ns1.service.factory.NamooClubServiceFactory;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 
 import dom.entity.CommunityMember;
+import dom.entity.SocialPerson;
 
 @WebServlet("/commission/comSelectMem.xhtml")
 public class ComSelectMemController extends DefaultController {
@@ -24,12 +25,14 @@ public class ComSelectMemController extends DefaultController {
 	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String name = person.getName();
 		String cmId = req.getParameter("cmId");
 		String communityName = service.findCommunity(cmId).getName();
 		List<CommunityMember> members = service.findAllCommunityMember(cmId);
 		
 		req.setAttribute("members", members);
-		req.setAttribute("name", req.getParameter("name"));
+		req.setAttribute("name", name);
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("cmId", cmId);
 		

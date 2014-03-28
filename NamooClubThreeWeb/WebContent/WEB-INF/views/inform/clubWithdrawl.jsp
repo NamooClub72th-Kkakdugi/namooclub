@@ -70,7 +70,6 @@ body {
 			<form action="${ctx}/club/clubList.do" method="get">
 				<h3>탈퇴 안내</h3>
 				<input type="hidden" name="cmId" value="${cmId}" />
-				<input type="hidden" name="name" value="${name}" />
 				<p>탈퇴가 완료되었습니다.</p>
 				<input type="submit" value="확인" />
 			</form>

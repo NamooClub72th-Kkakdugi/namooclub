@@ -11,6 +11,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.namoo.ns1.web.controller.shared.DefaultController;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
 
+import dom.entity.SocialPerson;
+
 
 @WebServlet("/community/comJoinInput.xhtml")
 @LoginRequired
@@ -23,7 +25,9 @@ public class ComJoinInputController extends DefaultController{
 		//
 		String id = req.getParameter("id");
 		req.setAttribute("id", id);
-		String name = req.getParameter("name");
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String name = person.getName();
+		
 		req.setAttribute("name", name);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comJoinInput.jsp");

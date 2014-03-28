@@ -20,9 +20,8 @@
 							<h1>${communityName}</h1>
 							<p>${description}</p>
 							<p>
-								<input type="hidden" name="name" value="${name}" /> <input
-									type="hidden" name="cmId" value="${cmId}" /> <input type="submit"
-									class="btn btn-warning btn-lg" value="클럽 개설하기">
+							<input type="hidden" name="cmId" value="${cmId}" /> 
+							<input type="submit" class="btn btn-warning btn-lg" value="클럽 개설하기">
 							</p>
 						</form>
 					</div>
@@ -32,7 +31,7 @@
 			<div class="row">
 				<div class="col-sm-12 col-lg-12">
 					<ol class="breadcrumb">
-						<li><a href="${ctx}/community/comList.do?name=${name}">Home</a></li>
+						<li><a href="${ctx}/community/comList.do">Home</a></li>
 						<li class="active">건강커뮤니티</li>
 					</ol>
 				</div>
@@ -58,7 +57,7 @@
 							<h2 id="container">가입 클럽</h2>
 						</div>
 
-						<form action="${ctx}/inform/comWithdrawlCheck.do?name=${name}"
+						<form action="${ctx}/inform/comWithdrawlCheck.do"
 							method="post">
 							<ul class="list-group">
 								<c:forEach var="club" items="${joinClubs}">
@@ -74,20 +73,20 @@
 											<p>${club.description}</p> <c:choose>
 												<c:when test="${club.manager.name == name}">
 													<button type="button" class="btn btn-default btn-sm"
-														onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}&name=${name}&cmId=${cmId}'">클럽
+														onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}&cmId=${cmId}'">클럽
 														삭제하기</button>
 													<button type="button" class="btn btn-default btn-sm"
 														disabled="disabled"
-														onclick="location.href='${ctx}/inform/clubWithdrawlCheck.do?clId=${club.id}&name=${name}&cmId=${cmId}'">멤버탈퇴
+														onclick="location.href='${ctx}/inform/clubWithdrawlCheck.do?clId=${club.id}&cmId=${cmId}'">멤버탈퇴
 														신청하기</button>
 												</c:when>
 												<c:otherwise>
 													<button type="button" class="btn btn-default btn-sm"
 														disabled="disabled"
-														onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}&name=${name}&cmId=${cmId}'">클럽
+														onclick="location.href='${ctx}/inform/clubRemoveCheck.do?clId=${club.id}&cmId=${cmId}'">클럽
 														삭제하기</button>
 													<button type="button" class="btn btn-default btn-sm"
-														onclick="location.href='${ctx}/inform/clubWithdrawlCheck.do?clId=${club.id}&name=${name}&cmId=${cmId}'">멤버탈퇴
+														onclick="location.href='${ctx}/inform/clubWithdrawlCheck.do?clId=${club.id}&cmId=${cmId}'">멤버탈퇴
 														신청하기</button>
 												</c:otherwise>
 											</c:choose></li>
@@ -112,7 +111,7 @@
 											</h4>
 											<p>${club.description}</p>
 											<button type="button" class="btn btn-default btn-sm"
-												onclick="location.href='${ctx}/club/clubJoinInput.xhtml?clId=${club.id}&name=${name}&cmId=${cmId}'">클럽가입하기</button>
+												onclick="location.href='${ctx}/club/clubJoinInput.xhtml?clId=${club.id}&cmId=${cmId}'">클럽가입하기</button>
 									</ul>
 								</c:forEach>
 						</ul>

@@ -26,7 +26,6 @@ public class LoginController extends DefaultController {
 		TownerService service = NamooClubServiceFactory.getInstance().getTownerService();
 		boolean login = service.loginAsTowner(loginId, password);
 		
-		
 		if (login) {
 			redirect(req, resp, "/community/comList.do");
 			req.getSession().setAttribute("loginUser", service.findTowner(loginId));

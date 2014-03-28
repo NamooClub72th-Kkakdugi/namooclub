@@ -33,7 +33,7 @@ public class ClubListController extends DefaultController {
 		CommunityService comService = NamooClubServiceFactory.getInstance().getCommunityService();
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 
-		String name = req.getParameter("name");
+		String name = person.getName();
 		String cmId = req.getParameter("cmId");
 		String email = person.getEmail();
 

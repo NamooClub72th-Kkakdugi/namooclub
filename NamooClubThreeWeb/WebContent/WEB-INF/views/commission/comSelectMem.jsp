@@ -19,7 +19,7 @@
 						<h1>나무 커뮤니티와 함께!</h1>
 						<p>나무 커뮤니티와 함께 특정 취미와 관심사, 특정 그룹 또는 조직에 관한 대화를 시작하세요.</p>
 						<p>
-							<a href="${ctx}/view/community/comCreateInput.xhtml?name=${name}"
+							<a href="${ctx}/view/community/comCreateInput.xhtml"
 								class="btn btn-warning btn-lg">커뮤니티 개설하기</a>
 						</p>
 					</div>
@@ -34,20 +34,27 @@
 				<div class="page-header">
 					<h2 id="container">${communityName}의멤버목록</h2>
 				</div>
-					<ul class="list-group">
-						<c:forEach var="member" items="${members}">
-							<li class="list-group-item"><span class="badge"></span>
-							<form action="${ctx}/commission/comCommission.do" method="post">
-								<h4>${member.name}</h4>
-								<p>${member.email}</p> 
-								<input type="hidden" name="name" value="${name}" />
-								<input type="hidden" name="cmId" value="${cmId}" /> 
-								<input type="hidden" name="email" value="${member.email}" />
-								<button type="submit" class="label label-info">위임</button>
-							</form>
-							</li>
-						</c:forEach>
-					</ul>
+				<table class="table table-hover" id="memberTable">
+					<thead>
+						<tr>
+							<th>이름</th>
+							<th>이메일</th>
+							<th></th>
+						</tr>
+					</thead>
+					<tbody>
+							<c:forEach var="member" items="${members}">
+								<tr>
+								<td>${member.name}</td>
+								<td>${member.email}</td>
+						
+								<td> <button type="button" class="btn btn-default btn-sm">위임</button></td>
+								<td hidden="hidden"><input type="hidden" name="cmId" value="${cmId}" /></td>
+								<td hidden="hidden"><input type="hidden" name="email" value="${member.email}" /></td>
+								</tr>
+							</c:forEach>
+					</tbody>
+				</table>
 			</div>
 		</div>
 		<%@ include file="/WEB-INF/views/common/footer.jsp"%>

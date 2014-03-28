@@ -54,7 +54,7 @@
 							<div class="form-group">
 								<div class="col-lg-10 col-lg-offset-2">
 									<button class="btn btn-primary" type="submit">확인</button>
-									<button class="btn btn-default" onclick="location.href='${ctx}/community/comList.do?name=${name}'; return false;">취소</button>
+									<button class="btn btn-default" onclick="location.href='${ctx}/community/comList.do'; return false;">취소</button>
 								</div>
 							</div>
 						</fieldset>
