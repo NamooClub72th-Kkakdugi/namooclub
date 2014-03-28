@@ -88,6 +88,7 @@
 											<a href="${ctx}/club/clubList.do?cmId=${community.id}&name=${name}">${community.name}</a>
 										</h4>
 										<p>${community.description}</p>
+										<span class="badge">개설 날짜 : <fmt:formatDate value="${community.openDate}" pattern="yyyy-MM-dd"/></span>
 										<button class="btn btn-default btn-sm" onclick="location.href='${ctx}/community/comJoinInput.xhtml?id=${community.id}&name=${name}'">멤버가입</button></li>
 								</c:forEach>
 						</ul>
