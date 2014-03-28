@@ -54,7 +54,7 @@ public class ClubListController extends HttpServlet{
 		
 		List<Club> joinClubs = service.findBelongclubs(email);
 		
-		List<Club> allClubs = service.findAllClubs(description);
+		List<Club> allClubs = service.findAllClubs();
 		for ( Club joinClub: joinClubs) {
 			allClubs.remove(joinClub);
 		}
