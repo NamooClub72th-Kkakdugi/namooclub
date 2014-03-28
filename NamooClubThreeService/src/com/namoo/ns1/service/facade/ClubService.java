@@ -60,7 +60,7 @@ public interface ClubService {
 	/**
 	 * @return
 	 */
-	public List<Club> findAllClubs();
+	public List<Club> findAllClubs(String cmId);
 	
 	
 	/**
@@ -93,20 +93,22 @@ public interface ClubService {
 	public void removeClub(String clubId, String cmId);
 	
 	/**
+	 * 해당 커뮤니티에
 	 * 자신이 회원으로 있는 클럽 목록조회
 	 * 
 	 * @param email
 	 * @return
 	 */
-	public List<Club> findBelongclubs(String email);
+	public List<Club> findBelongclubs(String email, String cmId);
 	
 	/**
+	 * 해당 커뮤니티에
 	 * 자신이 관리하는 클럽 목록조회
 	 * 
 	 * @param email
 	 * @return
 	 */
-	public List<Club> findManagedClubs(String email);
+	public List<Club> findManagedClubs(String email, String cmId);
 
 	/**
 	 * 클럽에서 탈퇴하기

@@ -50,15 +50,14 @@ public class ClubListController extends HttpServlet{
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("description", description);
 		
+		List<Club> joinClubs = service.findBelongclubs(email, cmId);
 		
-		
-		List<Club> joinClubs = service.findBelongclubs(email);
-		
-		List<Club> allClubs = service.findAllClubs();
+		List<Club> allClubs = service.findAllClubs(cmId);
 		for ( Club joinClub: joinClubs) {
 			allClubs.remove(joinClub);
 		}
-		req.setAttribute("clubs", allClubs);
+		req.setAttribute("joinClub", joinClubs);
+		req.setAttribute("allClubs", allClubs);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/clubList.jsp");
 		dispatcher.forward(req, resp);

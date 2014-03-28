@@ -33,9 +33,7 @@ public class ClubServiceLogic implements ClubService {
 			throw NamooExceptionFactory.createRuntime("존재하지 않는 주민입니다.");
 		}
 		
-		System.out.println("cmid:"+cmId);
 		Community community = em.find(Community.class, cmId);
-		System.out.println(community);
 		
 		String id = SequenceGenerator.getNextId(Club.class);
 		Club club = new Club(id, category, clubName, description, towner);
@@ -161,19 +159,19 @@ public class ClubServiceLogic implements ClubService {
 	}
 
 	@Override
-	public List<Club> findAllClubs() {
+	public List<Club> findAllClubs(String cmId) {
 		// 
-		return em.findAll(Club.class);
+		return em.find(Community.class, cmId).getClubs();
 	}
 
 	@Override
-	public List<Club> findBelongclubs(String email) {
-		// 
-		List<Club> commnities = em.findAll(Club.class);
-		if (commnities == null) return null;
+	public List<Club> findBelongclubs(String email, String cmId) {
+		//
+		List<Club> clubs = em.find(Community.class, cmId).getClubs();
+		if (clubs == null) return null;
 		
 		List<Club> belongs = new ArrayList<>();
-		for (Club club : commnities) {
+		for (Club club : clubs) {
 			if (club.findMember(email) != null) {
 				belongs.add(club);
 			}
@@ -182,13 +180,13 @@ public class ClubServiceLogic implements ClubService {
 	}
 
 	@Override
-	public List<Club> findManagedClubs(String email) {
+	public List<Club> findManagedClubs(String email, String cmId) {
 		// 
-		List<Club> commnities = em.findAll(Club.class);
-		if (commnities == null) return null;
+		List<Club> clubs = em.findAll(Club.class);
+		if (clubs == null) return null;
 		
 		List<Club> manages = new ArrayList<>();
-		for (Club club : commnities) {
+		for (Club club : clubs) {
 			if (club.getManager().getEmail().equals(email)) {
 				manages.add(club);
 			}

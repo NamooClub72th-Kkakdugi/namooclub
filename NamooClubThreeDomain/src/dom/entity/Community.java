@@ -67,6 +67,10 @@ public class Community implements Identifiable {
 	public List<CommunityMember> getMembers() {
 		return members;
 	}
+	
+	public List<Club> getClubs() {
+		return clubs;
+	}
 
 	//--------------------------------------------------------------------------
 	// public methods
