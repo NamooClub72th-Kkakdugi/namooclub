@@ -45,7 +45,6 @@
 						<div class="page-header">
 							<h2 id="container">가입 커뮤니티</h2>
 						</div>
-
 						<form action="${ctx}/inform/comWithdrawlCheck.do?name=${name}" method="post">
 							<ul class="list-group">
 								<c:forEach var="community" items="${joinCommunities}">
@@ -60,8 +59,9 @@
 										<input type="hidden" name="id" value="${community.id}" />
 										<c:choose>
 										<c:when test="${community.manager.name == name}">
-										<button class="btn btn-default btn-sm" onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${community.id}&name=${name}'; return false;">삭제하기</button>
-										<input type="submit" value="멤버탈퇴" disabled="disabled" class="btn btn-default btn-sm" />
+										<button class="btn btn-default btn-sm" onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${community.id}&name=${name}'; return false;">삭제하기</button><br/>
+										<button class="label label-info" onclick="location.href='${ctx}/commission/comSelectMem.xhtml?cmId=${community.id}&name=${name}'; return false;">권한 위임하기</button>
+										관리자는 탈퇴할 수 없습니다. 관리자 권한을 위임해야 합니다.
 										</c:when>
 										<c:otherwise>
 										<button class="btn btn-default btn-sm" disabled="disabled" onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${community.id}&name=${name}'; return false;">삭제하기</button>
@@ -86,8 +86,7 @@
 											<a href="${ctx}/club/clubList.do?cmId=${community.id}&name=${name}">${community.name}</a>
 										</h4>
 										<p>${community.description}</p>
-										<button class="btn btn-default btn-sm"
-											onclick="location.href='${ctx}/community/comJoinInput.xhtml?id=${community.id}&name=${name}'">멤버가입</button></li>
+										<button class="btn btn-default btn-sm" onclick="location.href='${ctx}/community/comJoinInput.xhtml?id=${community.id}&name=${name}'">멤버가입</button></li>
 								</c:forEach>
 						</ul>
 					</div>

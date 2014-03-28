@@ -60,9 +60,9 @@ public class CommunityServiceLogic implements CommunityService {
 	}
 
 	@Override
-	public Community findCommunity(String communityName){
+	public Community findCommunity(String cmId){
 		//
-		return em.find(Community.class, communityName);
+		return em.find(Community.class, cmId);
 	}
 
 	@Override
@@ -121,9 +121,9 @@ public class CommunityServiceLogic implements CommunityService {
 	}
 
 	@Override
-	public List<CommunityMember> findAllCommunityMember(String communityName) {
+	public List<CommunityMember> findAllCommunityMember(String cmId) {
 		// 
-		Community community = em.find(Community.class, communityName);
+		Community community = em.find(Community.class, cmId);
 		
 		if (community == null) {
 			throw NamooExceptionFactory.createRuntime("커뮤니티가 존재하지 않습니다.");
@@ -193,6 +193,15 @@ public class CommunityServiceLogic implements CommunityService {
 		}
 		
 		community.removeMember(email);
+		em.store(community);
+	}
+
+	@Override
+	public void commissionManagerCommunity(String cmId, SocialPerson rolePerson) {
+		//
+		Community community = em.find(Community.class, cmId);
+		community.setManager(rolePerson);
+		
 		em.store(community);
 	}
 }

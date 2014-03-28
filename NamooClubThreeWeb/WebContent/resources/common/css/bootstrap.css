@@ -7751,3 +7751,11 @@ input[type="color"]:focus,
 .affix {
     position: fixed;
 }
+
+.memberTable, th, td {
+	border : 1px solid #222;
+}
+
+.memberTable {
+	border-collapse: collapse;
+}

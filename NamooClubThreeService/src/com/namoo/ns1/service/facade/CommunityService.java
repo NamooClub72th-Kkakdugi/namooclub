@@ -6,6 +6,7 @@ import com.namoo.ns1.service.logic.exception.NamooRuntimeException;
 
 import dom.entity.Community;
 import dom.entity.CommunityMember;
+import dom.entity.SocialPerson;
 
 public interface CommunityService {
 
@@ -27,7 +28,7 @@ public interface CommunityService {
 	 * 
 	 * @param communityName
 	 */
-	public Community findCommunity(String communityName);
+	public Community findCommunity(String cmId);
 
 	/**
 	 * [주민으로 등록되지 않은 경우] 커뮤니티 가입
@@ -115,5 +116,7 @@ public interface CommunityService {
 	 * @param email
 	 */
 	public void withdrawalCommunity(String communityName, String email);
+	
+	public void commissionManagerCommunity(String cmId, SocialPerson rolePerson);
 
 }
