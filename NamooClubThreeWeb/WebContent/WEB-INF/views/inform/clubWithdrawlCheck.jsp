@@ -68,7 +68,7 @@ body {
 
 		<!-- body -->
 		<div class="info-body">
-			<form action="${ctx}/inform/clubRealWithdrawl.do" method="post">
+			<form action="${ctx}/inform/clubWithdrawl.do" method="post">
 				<h3>탈퇴 안내</h3>
 				<p>정말로 ${ComName} 커뮤니티의 ${clubName}에서 탈퇴 하시겠습니까??</p>
 				<input type="hidden" name="name" value="${name}" />
