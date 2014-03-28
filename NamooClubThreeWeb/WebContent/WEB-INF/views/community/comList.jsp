@@ -54,13 +54,21 @@
 										<c:if test="${community.manager.name == name}">
 										<span class="label label-warning">관리자</span>
 										</c:if>
-											<a href="${ctx}/club/clubList.do?cmId=${community.id}&name=${name}">${community.name}&nbsp;(회원수 : ${community.members.size()})</a>
+											<a href="${ctx}/club/clubList.do?cmId=${community.id}&name=${name}">${community.name}&nbsp;(회원수 : ${community.members.size()} 클럽수 : ${community.clubs.size()})</a>
 										</h4>
 										<p>${community.description}</p>
 										<input type="hidden" name="id" value="${community.id}" />
-										<button class="btn btn-default btn-sm"
-											onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${community.id}&name=${name}'; return false;">삭제하기</button>
-										<input type="submit" value="멤버탈퇴" class="btn btn-default btn-sm" /></li>
+										<c:choose>
+										<c:when test="${community.manager.name == name}">
+										<button class="btn btn-default btn-sm" onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${community.id}&name=${name}'; return false;">삭제하기</button>
+										<input type="submit" value="멤버탈퇴" disabled="disabled" class="btn btn-default btn-sm" />
+										</c:when>
+										<c:otherwise>
+										<button class="btn btn-default btn-sm" disabled="disabled" onclick="location.href='${ctx}/inform/comRemoveCheck.do?id=${community.id}&name=${name}'; return false;">삭제하기</button>
+										<input type="submit" value="멤버탈퇴" class="btn btn-default btn-sm" />
+										</c:otherwise>
+										</c:choose>
+										</li>
 								</c:forEach>
 							</ul>
 						</form>
@@ -75,7 +83,7 @@
 							<c:forEach var="community" items="${unjoincommunities}">
 									<li class="list-group-item"><span class="badge"></span>
 										<h4>
-											<a href="${ctx}/club/clubList.do">${community.name}</a>
+											<a href="${ctx}/club/clubList.do?cmId=${community.id}&name=${name}">${community.name}</a>
 										</h4>
 										<p>${community.description}</p>
 										<button class="btn btn-default btn-sm"
