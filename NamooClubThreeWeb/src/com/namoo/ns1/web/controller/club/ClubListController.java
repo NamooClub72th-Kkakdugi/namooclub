@@ -1,6 +1,7 @@
 package com.namoo.ns1.web.controller.club;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -34,14 +35,10 @@ public class ClubListController extends HttpServlet{
 		//
 		ClubService service = NamooClubServiceFactory.getInstance().getClubService();
 		CommunityService comService = NamooClubServiceFactory.getInstance().getCommunityService();
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		
 		String name = req.getParameter("name");
-		req.setAttribute("name", name);
-		
 		String cmId = req.getParameter("cmId");
-		req.setAttribute("cmId", cmId);
-		
-		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String email = person.getEmail();
 		
 		Community community = comService.findCommunity(cmId);
@@ -50,16 +47,34 @@ public class ClubListController extends HttpServlet{
 		req.setAttribute("communityName", communityName);
 		req.setAttribute("description", description);
 		
-		List<Club> joinClubs = service.findBelongclubs(email, cmId);
-		
 		List<Club> allClubs = service.findAllClubs(cmId);
-		for ( Club joinClub: joinClubs) {
-			allClubs.remove(joinClub);
-		}
-		req.setAttribute("joinClub", joinClubs);
-		req.setAttribute("allClubs", allClubs);
+		List<Club> joinClubs = service.findBelongclubs(email, cmId);
+		List<Club> unjoinClubs = filterList(allClubs, joinClubs);
+		
+		req.setAttribute("joinClubs", joinClubs);
+		req.setAttribute("unJoinClubs", unjoinClubs);
+		req.setAttribute("name", name);
+		req.setAttribute("cmId", cmId);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/club/clubList.jsp");
 		dispatcher.forward(req, resp);
+	}
+
+	private List<Club> filterList(List<Club> allClubs, List<Club> joinClubs) {
+		// 
+		List<Club> unjoinClubs = new ArrayList<Club>(allClubs);
+		List<Club> remove = new ArrayList<Club>();
+		for (Club joinClub : joinClubs) {
+			for (Club club : allClubs) {
+				if (club.getId().equals(joinClub.getId())) {
+					remove.add(club);
+					break;
+				}
+			}
+		}
+		if (!remove.isEmpty()) {
+			unjoinClubs.removeAll(remove);
+		}
+		return unjoinClubs;
 	}
 }

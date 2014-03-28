@@ -68,8 +68,8 @@
 							<h2 id="container">미가입 커뮤니티</h2>
 						</div>
 						<ul class="list-group">
-							<li class="list-group-item"><c:forEach var="community"
-									items="${allCommunities}">
+							<li class="list-group-item">
+							<c:forEach var="community" items="${unjoincommunities}">
 									<li class="list-group-item"><span class="badge"></span>
 										<h4>
 											<a href="${ctx}/club/clubList.do">${community.name}</a>

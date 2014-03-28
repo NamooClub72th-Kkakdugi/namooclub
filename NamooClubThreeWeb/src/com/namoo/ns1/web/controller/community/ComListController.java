@@ -1,6 +1,7 @@
 package com.namoo.ns1.web.controller.community;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -34,18 +35,37 @@ public class ComListController extends DefaultController{
 		String name = person.getName();
 		String email = person.getEmail();
 		
-		List<Community> joinCommunities = service.findBelongCommunities(email);
 		List<Community> allCommunities = service.findAllCommunities();
+		List<Community> joinCommunities = service.findBelongCommunities(email);
+		List<Community> unjoinCommunities = filterList(allCommunities, joinCommunities);
 		
 		for (Community joinCommunity : joinCommunities) {
 			allCommunities.remove(joinCommunity);
 		}
-		req.setAttribute("allCommunities", allCommunities);
 		req.setAttribute("joinCommunities", joinCommunities);
+		req.setAttribute("unjoincommunities", unjoinCommunities);
 		req.setAttribute("name", name);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comList.jsp");
 		dispatcher.forward(req, resp);
 		
+	}
+	
+	private List<Community> filterList(List<Community> allCommunities, List<Community> joinCommunities) {
+		// 
+		List<Community> unjoinCommunities = new ArrayList<Community>(allCommunities);
+		List<Community> remove = new ArrayList<Community>();
+		for (Community joinCommunity : joinCommunities) {
+			for (Community community : allCommunities) {
+				if (community.getId().equals(joinCommunity.getId())) {
+					remove.add(community);
+					break;
+				}
+			}
+		}
+		if (!remove.isEmpty()) {
+			unjoinCommunities.removeAll(remove);
+		}
+		return unjoinCommunities;
 	}
 }

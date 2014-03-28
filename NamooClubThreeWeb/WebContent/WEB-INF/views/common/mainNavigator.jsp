@@ -9,7 +9,7 @@
 				<span class="icon-bar"></span> <span class="icon-bar"></span> <span
 					class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand" href="./index.html">나무커뮤니티</a>
+			<a class="navbar-brand" href="${ctx}/community/comList.do">나무커뮤니티</a>
 		</div>
 		<div class="navbar-collapse collapse navbar-responsive-collapse">
 
