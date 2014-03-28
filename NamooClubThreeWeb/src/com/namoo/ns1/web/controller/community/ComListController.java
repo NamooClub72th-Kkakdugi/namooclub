@@ -2,6 +2,7 @@ package com.namoo.ns1.web.controller.community;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.RequestDispatcher;
@@ -35,16 +36,18 @@ public class ComListController extends DefaultController{
 		String name = person.getName();
 		String email = person.getEmail();
 		
+
+		
+//		Date openDate = community.getOpenDate();
+		
 		List<Community> allCommunities = service.findAllCommunities();
 		List<Community> joinCommunities = service.findBelongCommunities(email);
 		List<Community> unjoinCommunities = filterList(allCommunities, joinCommunities);
 		
-		for (Community joinCommunity : joinCommunities) {
-			allCommunities.remove(joinCommunity);
-		}
 		req.setAttribute("joinCommunities", joinCommunities);
 		req.setAttribute("unjoincommunities", unjoinCommunities);
 		req.setAttribute("name", name);
+//		req.setAttribute("openDate", openDate);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comList.jsp");
 		dispatcher.forward(req, resp);		
@@ -67,4 +70,5 @@ public class ComListController extends DefaultController{
 		}
 		return unjoinCommunities;
 	}
+
 }
