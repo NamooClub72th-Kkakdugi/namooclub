@@ -69,8 +69,7 @@
 													<span class="label label-warning">관리자</span>
 												</c:if>
 												<span class="label label-primary">${club.category}</span>&nbsp; <a
-													href="../team/index.html">${club.name}&nbsp;(회원수 :
-													${club.members.size()})</a>
+													href="../team/index.html">${club.name}&nbsp;(회원수 : ${club.members.size()})</a>
 											</h4>
 											<p>${club.description}</p> <c:choose>
 												<c:when test="${club.manager.name == name}">

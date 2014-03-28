@@ -75,17 +75,17 @@ public class Community implements Identifiable {
 		return clubs;
 	}
 	
+	public Date getOpenDate() {
+		return openDate;
+	}
+	
+	public void setOpenDate(Date openDate) {
+		this.openDate = openDate;
+	}
 
 	//--------------------------------------------------------------------------
 	// public methods
 	
-	public Date getOpenDate() {
-		return openDate;
-	}
-
-	public void setOpenDate(Date openDate) {
-		this.openDate = openDate;
-	}
 
 	public CommunityMember findMember(String email) {
 		//
