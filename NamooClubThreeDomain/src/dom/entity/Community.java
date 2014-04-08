@@ -85,7 +85,6 @@ public class Community implements Identifiable {
 
 	//--------------------------------------------------------------------------
 	// public methods
-	
 
 	public CommunityMember findMember(String email) {
 		//

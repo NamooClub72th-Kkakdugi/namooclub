@@ -35,7 +35,6 @@ public class ClubServiceLogic implements ClubService {
 			throw NamooExceptionFactory.createRuntime("존재하지 않는 주민입니다.");
 		}
 		
-		
 		String id = SequenceGenerator.getNextId(Club.class);
 		Club club = new Club(id, category, clubName, description, towner);
 		
