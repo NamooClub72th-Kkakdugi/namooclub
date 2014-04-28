@@ -14,6 +14,7 @@ import com.namoo.ns1.web.controller.shared.DefaultController;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
 
 import dom.entity.Community;
+import dom.entity.SocialPerson;
 
 
 @WebServlet("/inform/comRemoveCheck.do")
@@ -26,13 +27,15 @@ public class ComRemoveCheckController extends DefaultController {
 	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		//
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String name = person.getName();
 		
 		String id = req.getParameter("id");
 		req.setAttribute("id", id);
 		Community community = service.findCommunity(id);
 		String communityName = community.getName();
 		req.setAttribute("communityName", communityName);
-		req.setAttribute("name", req.getParameter("name"));
+		req.setAttribute("name", name);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/inform/comRemoveCheck.jsp");
 		dispatcher.forward(req, resp);
