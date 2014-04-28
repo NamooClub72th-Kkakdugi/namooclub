@@ -17,7 +17,7 @@ import dom.entity.SocialPerson;
 
 @WebServlet("/inform/comWithdrawl.do")
 @LoginRequired
-public class comWithdrawlController extends DefaultController {
+public class ComWithdrawlController extends DefaultController {
 
 	private static final long serialVersionUID = -2515907141006105519L;
 
@@ -25,9 +25,10 @@ public class comWithdrawlController extends DefaultController {
 	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String name = person.getName();
 		String id = req.getParameter("id");
 		String email = person.getEmail();
-		req.setAttribute("name", req.getParameter("name"));
+		req.setAttribute("name", name);
 		
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		service.withdrawalCommunity(id, email);

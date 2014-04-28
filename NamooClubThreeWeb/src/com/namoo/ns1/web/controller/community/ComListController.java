@@ -31,6 +31,7 @@ public class ComListController extends DefaultController{
 		
 		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
 		String email = person.getEmail();
+		String name = person.getName();
 		
 		List<Community> allCommunities = service.findAllCommunities();
 		List<Community> joinCommunities = service.findBelongCommunities(email);
@@ -38,6 +39,7 @@ public class ComListController extends DefaultController{
 
 		req.setAttribute("joinCommunities", joinCommunities);
 		req.setAttribute("unjoincommunities", unjoinCommunities);
+		req.setAttribute("name", name);
 		
 		RequestDispatcher dispatcher = req.getRequestDispatcher("/WEB-INF/views/community/comList.jsp");
 		dispatcher.forward(req, resp);		

@@ -14,6 +14,7 @@ import com.namoo.ns1.web.controller.shared.DefaultController;
 import com.namoo.ns1.web.controller.shared.LoginRequired;
 
 import dom.entity.Community;
+import dom.entity.SocialPerson;
 
 @WebServlet("/inform/comWithdrawlCheck.do")
 @LoginRequired
@@ -24,9 +25,11 @@ public class ComWithdrawlCheckController extends DefaultController {
 	@Override
 	protected void process(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// 
+		SocialPerson person = (SocialPerson) req.getSession().getAttribute("loginUser");
+		String name = person.getName();
 		String id = req.getParameter("id");
 		req.setAttribute("id", id);
-		req.setAttribute("name", req.getParameter("name"));
+		req.setAttribute("name", name);
 		CommunityService service = NamooClubServiceFactory.getInstance().getCommunityService();
 		Community community = service.findCommunity(id);
 		String communityName = community.getName();
