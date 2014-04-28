@@ -5,7 +5,7 @@
 <head>
 <title>로그인하기</title>
 <%@ include file="/WEB-INF/views/common/common.jsp"%>
-<%@ include file="/resources/css/login.css"%>
+<link href="${ctx}/resources/css/login.css" rel="stylesheet">
 </head>
 <body>
 	<div class="container">
